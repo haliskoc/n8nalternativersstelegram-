@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  rss-telegram-bot:
+    build: .
+    container_name: rss-telegram-bot
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - CHAT_ID=${CHAT_ID}
+    volumes:
+      - ./data:/app/data
