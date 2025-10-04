@@ -6,8 +6,9 @@ A Telegram bot that automatically tracks RSS feeds from 30+ websites including t
 
 - **30+ Websites**: Technology, science, economics, and research news
 - **5-Minute Check Interval**: Always up-to-date news
-- **Daily AI Summary**: Gemini AI generates daily summaries at 17:50
-- **Excel Storage**: All news stored in organized Excel files
+- **Daily AI Summary**: Gemini AI generates daily summaries at 18:35
+- **Auto Excel Storage**: Daily news files with automatic cleanup
+- **Smart File Management**: Old files automatically deleted after summary
 - **Duplicate Prevention**: Won't send the same news twice
 - **Source Display**: Shows which site each news comes from
 - **Low Resource Usage**: Only 30 MB RAM, 3% CPU
@@ -140,8 +141,9 @@ tail -f bot.log
 ### Bot Settings
 - Check interval: 5 minutes
 - News age: 24 hours
-- Daily summary: 18:30 (Gemini AI)
-- Excel storage: All news categorized
+- Daily summary: 18:35 (Gemini AI)
+- Excel storage: Daily files with auto-cleanup
+- File management: Auto-delete after summary
 - Maximum summary: 300 characters
 
 ## 📁 Project Structure

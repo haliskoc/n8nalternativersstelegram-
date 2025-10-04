@@ -114,13 +114,17 @@ class RSSNewsBot:
     def init_daily_news_storage(self):
         """Günlük haber depolama Excel dosyasını başlat"""
         try:
+            # Günlük dosya adı oluştur
+            today = datetime.now().strftime('%Y-%m-%d')
+            self.daily_news_path = f"daily_news_{today}.xlsx"
+            
             if not os.path.exists(self.daily_news_path):
                 wb = Workbook()
                 ws = wb.active
-                ws.title = "Daily News"
+                ws.title = f"Daily News {today}"
                 ws.append(['Date', 'Time', 'Source', 'Category', 'Title', 'Content', 'Link'])
                 wb.save(self.daily_news_path)
-                logger.info("Günlük haber depolama dosyası oluşturuldu")
+                logger.info(f"Günlük haber depolama dosyası oluşturuldu: {self.daily_news_path}")
         except Exception as e:
             logger.error(f"Günlük haber depolama başlatma hatası: {e}")
     
@@ -334,9 +338,9 @@ class RSSNewsBot:
     
     def format_news_message(self, news: Dict) -> str:
         """Haber mesajını formatla"""
-        # HTML karakterlerini temizle
-        title = news['title'].replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
-        summary = news['summary'].replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
+        # HTML karakterlerini temizle ve escape et
+        title = news['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        summary = news['summary'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
         source = news.get('source', 'Bilinmeyen Kaynak')
         
         # Özeti kısalt (Telegram limiti için)
@@ -486,16 +490,60 @@ class RSSNewsBot:
                     self.send_telegram_message(message)
                 
                 logger.info("Günlük özet başarıyla gönderildi")
+                
+                # Özet gönderildikten sonra günlük dosyayı sil
+                self.cleanup_daily_files()
+                
             else:
                 logger.warning("Özet oluşturulamadı veya çok kısa")
                 
         except Exception as e:
             logger.error(f"Günlük özet gönderme hatası: {e}")
     
+    def cleanup_daily_files(self):
+        """Günlük dosyaları temizle"""
+        try:
+            today = datetime.now().strftime('%Y-%m-%d')
+            daily_file = f"daily_news_{today}.xlsx"
+            
+            if os.path.exists(daily_file):
+                os.remove(daily_file)
+                logger.info(f"Günlük dosya temizlendi: {daily_file}")
+            
+            # Eski günlük dosyalarını da temizle (7 günden eski)
+            for i in range(1, 8):
+                old_date = (datetime.now() - timedelta(days=i)).strftime('%Y-%m-%d')
+                old_file = f"daily_news_{old_date}.xlsx"
+                if os.path.exists(old_file):
+                    os.remove(old_file)
+                    logger.info(f"Eski günlük dosya temizlendi: {old_file}")
+                    
+        except Exception as e:
+            logger.error(f"Günlük dosya temizleme hatası: {e}")
+    
     def schedule_daily_summary(self):
         """Günlük özet zamanlaması"""
-        schedule.every().day.at("18:30").do(self.send_daily_summary)
-        logger.info("Günlük özet 18:30'da gönderilecek şekilde zamanlandı")
+        schedule.every().day.at("18:35").do(self.send_daily_summary)
+        logger.info("Günlük özet 18:35'te gönderilecek şekilde zamanlandı")
+    
+    def check_and_renew_daily_file(self):
+        """Günlük dosya kontrolü ve yenileme"""
+        try:
+            today = datetime.now().strftime('%Y-%m-%d')
+            current_file = f"daily_news_{today}.xlsx"
+            
+            # Eğer bugünün dosyası yoksa yeni oluştur
+            if not os.path.exists(current_file):
+                self.daily_news_path = current_file
+                wb = Workbook()
+                ws = wb.active
+                ws.title = f"Daily News {today}"
+                ws.append(['Date', 'Time', 'Source', 'Category', 'Title', 'Content', 'Link'])
+                wb.save(self.daily_news_path)
+                logger.info(f"Yeni günlük dosya oluşturuldu: {self.daily_news_path}")
+                
+        except Exception as e:
+            logger.error(f"Günlük dosya kontrol hatası: {e}")
     
     def run_continuous(self, interval_minutes: int = 5):
         """Sürekli çalışma modu"""
@@ -515,6 +563,9 @@ class RSSNewsBot:
         
         while True:
             try:
+                # Her çalışmada günlük dosya kontrolü yap
+                self.check_and_renew_daily_file()
+                
                 self.process_news()
                 logger.info(f"{interval_minutes} dakika bekleniyor...")
                 time.sleep(interval_minutes * 60)
@@ -542,7 +593,7 @@ def main():
     bot = RSSNewsBot(telegram_token, chat_id, gemini_api_key=gemini_api_key)
     
     # Test mesajı gönder
-    test_message = "🤖 RSS News Bot başlatıldı! 30+ site (teknoloji, bilim, ekonomi) haberleri takip ediliyor...\n\n📊 Günlük özet 18:30'da Gemini AI ile gönderilecek!"
+    test_message = "🤖 RSS News Bot başlatıldı! 30+ site (teknoloji, bilim, ekonomi) haberleri takip ediliyor...\n\n📊 Günlük özet 18:35'te Gemini AI ile gönderilecek!"
     if bot.send_telegram_message(test_message):
         logger.info("Test mesajı gönderildi")
     else:
