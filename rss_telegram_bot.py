@@ -50,7 +50,26 @@ class RSSNewsBot:
                 "https://pchocasi.com.tr/feed",
                 "https://www.teknoblog.com/feed",
                 "https://www.megabayt.com/rss/categorynews/teknoloji",
-                "https://www.sozcu.com.tr/feeds-rss-category-bilim-teknoloji"
+                "https://www.sozcu.com.tr/feeds-rss-category-bilim-teknoloji",
+                
+                # Bilim & Araştırma
+                "https://rss.sciam.com/ScientificAmerican-Global",
+                "https://www.science.org/rss/news_current.xml",
+                "https://www.sciencedaily.com/rss/all.xml",
+                "https://news.mit.edu/rss",
+                "https://www.wired.com/category/science/feed",
+                "https://www.nasa.gov/rss/dyn/breaking_news.rss",
+                
+                # Ekonomi & Finans
+                "https://tradingeconomics.com/rss",
+                "https://www.marketwatch.com/rss/topstories",
+                "https://www.federalreserve.gov/feeds/press_all.xml",
+                "https://cepr.org/rss-feeds",
+                "https://economic-research.bnpparibas.com/RSS/en-US",
+                
+                # Genel Haber & Analiz
+                "https://theconversation.com/global/topics/science-technology.rss",
+                "https://futurism.com/feed"
             ]
         else:
             self.rss_urls = rss_urls
@@ -165,6 +184,7 @@ class RSSNewsBot:
     def get_site_name(self, url: str) -> str:
         """URL'den site adını çıkar"""
         site_names = {
+            # Teknoloji
             "techcrunch.com": "TechCrunch",
             "wired.com": "WIRED",
             "techrepublic.com": "TechRepublic",
@@ -179,7 +199,25 @@ class RSSNewsBot:
             "pchocasi.com.tr": "PC Hocası",
             "teknoblog.com": "Teknoblog",
             "megabayt.com": "Megabayt",
-            "sozcu.com.tr": "Sözcü"
+            "sozcu.com.tr": "Sözcü",
+            
+            # Bilim & Araştırma
+            "sciam.com": "Scientific American",
+            "science.org": "Science (AAAS)",
+            "sciencedaily.com": "ScienceDaily",
+            "mit.edu": "MIT News",
+            "nasa.gov": "NASA",
+            
+            # Ekonomi & Finans
+            "tradingeconomics.com": "Trading Economics",
+            "marketwatch.com": "MarketWatch",
+            "federalreserve.gov": "Federal Reserve",
+            "cepr.org": "CEPR",
+            "bnpparibas.com": "BNP Paribas",
+            
+            # Genel
+            "theconversation.com": "The Conversation",
+            "futurism.com": "Futurism"
         }
         
         for domain, name in site_names.items():
@@ -302,7 +340,7 @@ def main():
     bot = RSSNewsBot(telegram_token, chat_id)
     
     # Test mesajı gönder
-    test_message = "🤖 RSS News Bot başlatıldı! 15 teknoloji sitesinden haberler takip ediliyor..."
+    test_message = "🤖 RSS News Bot başlatıldı! 30+ site (teknoloji, bilim, ekonomi) haberleri takip ediliyor..."
     if bot.send_telegram_message(test_message):
         logger.info("Test mesajı gönderildi")
     else:

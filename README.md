@@ -1,10 +1,10 @@
 # 🤖 Multi-Source RSS Telegram Bot
 
-A Telegram bot that automatically tracks RSS feeds from 15 different technology websites and sends news to Telegram.
+A Telegram bot that automatically tracks RSS feeds from 30+ websites including technology, science, and economics news.
 
 ## ✨ Features
 
-- **15 Technology Sites**: International and Turkish technology news
+- **30+ Websites**: Technology, science, economics, and research news
 - **5-Minute Check Interval**: Always up-to-date news
 - **Duplicate Prevention**: Won't send the same news twice
 - **Source Display**: Shows which site each news comes from
@@ -12,13 +12,24 @@ A Telegram bot that automatically tracks RSS feeds from 15 different technology 
 
 ## 📰 Tracked Websites
 
-### 🌍 International
+### 💻 Technology
 - TechCrunch, WIRED, TechRepublic
 - Computer Weekly, Ars Technica
 - The Verge, Engadget
-
-### 🇹🇷 Turkish
 - Webtekno, Technopat, ShiftDelete
+
+### 🔬 Science & Research
+- Scientific American, Science (AAAS)
+- ScienceDaily, MIT News
+- NASA, The Conversation
+- Futurism
+
+### 💰 Economics & Finance
+- Trading Economics, MarketWatch
+- Federal Reserve, CEPR
+- BNP Paribas Economic Research
+
+### 🇹🇷 Turkish Technology
 - Donanım Günlüğü, PC Hocası
 - Teknoblog, Megabayt, Sözcü
 
