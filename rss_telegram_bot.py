@@ -494,8 +494,8 @@ class RSSNewsBot:
     
     def schedule_daily_summary(self):
         """Günlük özet zamanlaması"""
-        schedule.every().day.at("17:50").do(self.send_daily_summary)
-        logger.info("Günlük özet 17:50'de gönderilecek şekilde zamanlandı")
+        schedule.every().day.at("18:30").do(self.send_daily_summary)
+        logger.info("Günlük özet 18:30'da gönderilecek şekilde zamanlandı")
     
     def run_continuous(self, interval_minutes: int = 5):
         """Sürekli çalışma modu"""
@@ -542,7 +542,7 @@ def main():
     bot = RSSNewsBot(telegram_token, chat_id, gemini_api_key=gemini_api_key)
     
     # Test mesajı gönder
-    test_message = "🤖 RSS News Bot başlatıldı! 30+ site (teknoloji, bilim, ekonomi) haberleri takip ediliyor...\n\n📊 Günlük özet 17:50'de Gemini AI ile gönderilecek!"
+    test_message = "🤖 RSS News Bot başlatıldı! 30+ site (teknoloji, bilim, ekonomi) haberleri takip ediliyor...\n\n📊 Günlük özet 18:30'da Gemini AI ile gönderilecek!"
     if bot.send_telegram_message(test_message):
         logger.info("Test mesajı gönderildi")
     else:

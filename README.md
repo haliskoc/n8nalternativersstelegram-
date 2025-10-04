@@ -140,7 +140,7 @@ tail -f bot.log
 ### Bot Settings
 - Check interval: 5 minutes
 - News age: 24 hours
-- Daily summary: 17:50 (Gemini AI)
+- Daily summary: 18:30 (Gemini AI)
 - Excel storage: All news categorized
 - Maximum summary: 300 characters
 
