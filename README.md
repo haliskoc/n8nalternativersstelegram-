@@ -6,6 +6,8 @@ A Telegram bot that automatically tracks RSS feeds from 30+ websites including t
 
 - **30+ Websites**: Technology, science, economics, and research news
 - **5-Minute Check Interval**: Always up-to-date news
+- **Daily AI Summary**: Gemini AI generates daily summaries at 17:50
+- **Excel Storage**: All news stored in organized Excel files
 - **Duplicate Prevention**: Won't send the same news twice
 - **Source Display**: Shows which site each news comes from
 - **Low Resource Usage**: Only 30 MB RAM, 3% CPU
@@ -46,13 +48,18 @@ A Telegram bot that automatically tracks RSS feeds from 30+ websites including t
 1. Talk to [@userinfobot](https://t.me/userinfobot)
 2. **Copy and save your Chat ID**
 
-### 3. Download Project
+### 3. Get Gemini AI API Key
+1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Create a new API key
+3. **Copy and save the API key**
+
+### 4. Download Project
 ```bash
 git clone https://github.com/username/rss-telegram-bot.git
 cd rss-telegram-bot
 ```
 
-### 4. Run with Python
+### 5. Run with Python
 ```bash
 # Install dependencies
 pip install -r requirements.txt
@@ -60,12 +67,13 @@ pip install -r requirements.txt
 # Set environment variables
 export TELEGRAM_TOKEN="your_bot_token_here"
 export CHAT_ID="your_chat_id_here"
+export GEMINI_API_KEY="your_gemini_api_key_here"
 
 # Start the bot
 python3 rss_telegram_bot.py
 ```
 
-### 5. Run with Docker
+### 6. Run with Docker
 ```bash
 # Set environment variables
 export TELEGRAM_TOKEN="your_bot_token_here"
@@ -127,10 +135,13 @@ tail -f bot.log
 ### Environment Variables
 - `TELEGRAM_TOKEN`: Telegram bot token
 - `CHAT_ID`: Target chat ID
+- `GEMINI_API_KEY`: Google Gemini AI API key
 
 ### Bot Settings
 - Check interval: 5 minutes
 - News age: 24 hours
+- Daily summary: 17:50 (Gemini AI)
+- Excel storage: All news categorized
 - Maximum summary: 300 characters
 
 ## 📁 Project Structure

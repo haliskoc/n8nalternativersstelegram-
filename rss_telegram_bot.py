@@ -13,6 +13,11 @@ import os
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 import hashlib
+import google.generativeai as genai
+import openpyxl
+from openpyxl import Workbook
+import schedule
+import threading
 
 # Logging yapılandırması
 logging.basicConfig(
@@ -26,9 +31,15 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class RSSNewsBot:
-    def __init__(self, telegram_token: str, chat_id: str, rss_urls: list = None):
+    def __init__(self, telegram_token: str, chat_id: str, rss_urls: list = None, gemini_api_key: str = None):
         self.telegram_token = telegram_token
         self.chat_id = chat_id
+        self.gemini_api_key = gemini_api_key
+        
+        # Gemini AI'yi başlat
+        if self.gemini_api_key:
+            genai.configure(api_key=self.gemini_api_key)
+            self.gemini_model = genai.GenerativeModel('gemini-pro')
         
         # Varsayılan RSS feed listesi
         if rss_urls is None:
@@ -76,7 +87,9 @@ class RSSNewsBot:
             
         self.telegram_api_url = f"https://api.telegram.org/bot{telegram_token}"
         self.db_path = "news_bot.db"
+        self.daily_news_path = "daily_news.xlsx"
         self.init_database()
+        self.init_daily_news_storage()
         
     def init_database(self):
         """SQLite veritabanını başlat ve tabloyu oluştur"""
@@ -97,6 +110,69 @@ class RSSNewsBot:
             logger.info("Veritabanı başarıyla başlatıldı")
         except Exception as e:
             logger.error(f"Veritabanı başlatma hatası: {e}")
+    
+    def init_daily_news_storage(self):
+        """Günlük haber depolama Excel dosyasını başlat"""
+        try:
+            if not os.path.exists(self.daily_news_path):
+                wb = Workbook()
+                ws = wb.active
+                ws.title = "Daily News"
+                ws.append(['Date', 'Time', 'Source', 'Category', 'Title', 'Content', 'Link'])
+                wb.save(self.daily_news_path)
+                logger.info("Günlük haber depolama dosyası oluşturuldu")
+        except Exception as e:
+            logger.error(f"Günlük haber depolama başlatma hatası: {e}")
+    
+    def save_news_to_excel(self, news_item: Dict):
+        """Haberi Excel dosyasına kaydet"""
+        try:
+            wb = openpyxl.load_workbook(self.daily_news_path)
+            ws = wb.active
+            
+            # Kategori belirleme
+            category = self.get_category_from_source(news_item.get('source', ''))
+            
+            # Bugünün tarihi
+            today = datetime.now().strftime('%Y-%m-%d')
+            current_time = datetime.now().strftime('%H:%M:%S')
+            
+            ws.append([
+                today,
+                current_time,
+                news_item.get('source', 'Unknown'),
+                category,
+                news_item.get('title', ''),
+                news_item.get('summary', ''),
+                news_item.get('link', '')
+            ])
+            
+            wb.save(self.daily_news_path)
+            logger.info(f"Haber Excel'e kaydedildi: {news_item.get('title', '')[:50]}...")
+            
+        except Exception as e:
+            logger.error(f"Excel kaydetme hatası: {e}")
+    
+    def get_category_from_source(self, source: str) -> str:
+        """Kaynağa göre kategori belirle"""
+        tech_sources = ['TechCrunch', 'WIRED', 'TechRepublic', 'Computer Weekly', 'Ars Technica', 
+                       'The Verge', 'Engadget', 'Webtekno', 'Technopat', 'ShiftDelete', 
+                       'Donanım Günlüğü', 'PC Hocası', 'Teknoblog', 'Megabayt', 'Sözcü']
+        
+        science_sources = ['Scientific American', 'Science (AAAS)', 'ScienceDaily', 'MIT News', 
+                          'NASA', 'The Conversation', 'Futurism']
+        
+        economics_sources = ['Trading Economics', 'MarketWatch', 'Federal Reserve', 'CEPR', 
+                           'BNP Paribas']
+        
+        if source in tech_sources:
+            return 'Technology'
+        elif source in science_sources:
+            return 'Science'
+        elif source in economics_sources:
+            return 'Economics'
+        else:
+            return 'General'
     
     def get_news_hash(self, title: str, link: str) -> str:
         """Haber için benzersiz hash oluştur"""
@@ -297,6 +373,8 @@ class RSSNewsBot:
                 
                 if self.send_telegram_message(message):
                     self.mark_news_sent(news_hash, news['title'], news['link'])
+                    # Haberi Excel'e kaydet
+                    self.save_news_to_excel(news)
                     new_news_count += 1
                     logger.info(f"Yeni haber gönderildi: {news['title'][:50]}...")
                     
@@ -308,9 +386,132 @@ class RSSNewsBot:
         logger.info(f"İşlem tamamlandı. {new_news_count} yeni haber gönderildi.")
         return new_news_count
     
+    def get_todays_news_from_excel(self) -> Dict[str, List[Dict]]:
+        """Excel'den bugünün haberlerini kategorilere göre al"""
+        try:
+            wb = openpyxl.load_workbook(self.daily_news_path)
+            ws = wb.active
+            
+            today = datetime.now().strftime('%Y-%m-%d')
+            categories = {'Technology': [], 'Science': [], 'Economics': [], 'General': []}
+            
+            for row in ws.iter_rows(min_row=2, values_only=True):
+                if row[0] == today:  # Bugünün tarihi
+                    news_item = {
+                        'source': row[2],
+                        'category': row[3],
+                        'title': row[4],
+                        'content': row[5],
+                        'link': row[6]
+                    }
+                    category = row[3]
+                    if category in categories:
+                        categories[category].append(news_item)
+            
+            return categories
+            
+        except Exception as e:
+            logger.error(f"Excel'den haber okuma hatası: {e}")
+            return {'Technology': [], 'Science': [], 'Economics': [], 'General': []}
+    
+    def generate_daily_summary_with_gemini(self) -> str:
+        """Gemini AI ile günlük özet oluştur"""
+        try:
+            if not self.gemini_api_key:
+                return "Gemini AI API key bulunamadı."
+            
+            todays_news = self.get_todays_news_from_excel()
+            
+            if not any(todays_news.values()):
+                return "Bugün henüz haber bulunamadı."
+            
+            # Gemini'ye gönderilecek prompt
+            prompt = f"""
+            Bugün toplanan haberleri kategorilere göre analiz et ve detaylı bir günlük özet hazırla.
+            
+            TEKNOLOJİ HABERLERİ:
+            {self.format_news_for_ai(todays_news['Technology'])}
+            
+            BİLİM HABERLERİ:
+            {self.format_news_for_ai(todays_news['Science'])}
+            
+            EKONOMİ HABERLERİ:
+            {self.format_news_for_ai(todays_news['Economics'])}
+            
+            Lütfen şu formatta özet hazırla:
+            1. Her kategori için ayrı başlık
+            2. Her kategoride en önemli 3-5 haber
+            3. Her haber için kısa analiz
+            4. Genel değerlendirme
+            5. Türkçe olarak yaz
+            
+            Özet maksimum 2000 kelime olsun.
+            """
+            
+            response = self.gemini_model.generate_content(prompt)
+            return response.text
+            
+        except Exception as e:
+            logger.error(f"Gemini özet oluşturma hatası: {e}")
+            return f"Özet oluşturulurken hata: {e}"
+    
+    def format_news_for_ai(self, news_list: List[Dict]) -> str:
+        """Haberleri AI için formatla"""
+        if not news_list:
+            return "Bu kategoride haber bulunamadı."
+        
+        formatted = ""
+        for news in news_list[:10]:  # Maksimum 10 haber
+            formatted += f"• {news['title']} ({news['source']})\n"
+            formatted += f"  {news['content'][:200]}...\n\n"
+        
+        return formatted
+    
+    def send_daily_summary(self):
+        """Günlük özeti gönder"""
+        try:
+            logger.info("Günlük özet hazırlanıyor...")
+            summary = self.generate_daily_summary_with_gemini()
+            
+            if summary and len(summary) > 100:
+                # Telegram mesaj limiti için böl
+                if len(summary) > 4000:
+                    chunks = [summary[i:i+4000] for i in range(0, len(summary), 4000)]
+                    for i, chunk in enumerate(chunks):
+                        message = f"📊 **GÜNLÜK ÖZET - BÖLÜM {i+1}/{len(chunks)}**\n\n{chunk}"
+                        self.send_telegram_message(message)
+                        time.sleep(2)
+                else:
+                    message = f"📊 **GÜNLÜK ÖZET - {datetime.now().strftime('%d.%m.%Y')}**\n\n{summary}"
+                    self.send_telegram_message(message)
+                
+                logger.info("Günlük özet başarıyla gönderildi")
+            else:
+                logger.warning("Özet oluşturulamadı veya çok kısa")
+                
+        except Exception as e:
+            logger.error(f"Günlük özet gönderme hatası: {e}")
+    
+    def schedule_daily_summary(self):
+        """Günlük özet zamanlaması"""
+        schedule.every().day.at("17:50").do(self.send_daily_summary)
+        logger.info("Günlük özet 17:50'de gönderilecek şekilde zamanlandı")
+    
     def run_continuous(self, interval_minutes: int = 5):
         """Sürekli çalışma modu"""
         logger.info(f"Bot başlatıldı. {interval_minutes} dakikada bir kontrol edilecek.")
+        
+        # Günlük özet zamanlamasını başlat
+        self.schedule_daily_summary()
+        
+        # Schedule'ı ayrı thread'de çalıştır
+        def run_scheduler():
+            while True:
+                schedule.run_pending()
+                time.sleep(60)  # Her dakika kontrol et
+        
+        scheduler_thread = threading.Thread(target=run_scheduler, daemon=True)
+        scheduler_thread.start()
         
         while True:
             try:
@@ -330,6 +531,7 @@ def main():
     # Environment variables'dan konfigürasyon al
     telegram_token = os.getenv('TELEGRAM_TOKEN', 'your_telegram_bot_token_here')
     chat_id = os.getenv('CHAT_ID', 'your_telegram_chat_id_here')
+    gemini_api_key = os.getenv('GEMINI_API_KEY', 'AIzaSyCxDcOcq3_tbhOvoJL1R4IdcdYoRGhbE0w')
     
     if not telegram_token or telegram_token == 'your_telegram_bot_token_here':
         logger.error("TELEGRAM_TOKEN environment variable gerekli!")
@@ -337,10 +539,10 @@ def main():
         telegram_token = "test_token_for_local_testing"
     
     # Bot'u başlat (artık tüm RSS feed'leri otomatik yüklenir)
-    bot = RSSNewsBot(telegram_token, chat_id)
+    bot = RSSNewsBot(telegram_token, chat_id, gemini_api_key=gemini_api_key)
     
     # Test mesajı gönder
-    test_message = "🤖 RSS News Bot başlatıldı! 30+ site (teknoloji, bilim, ekonomi) haberleri takip ediliyor..."
+    test_message = "🤖 RSS News Bot başlatıldı! 30+ site (teknoloji, bilim, ekonomi) haberleri takip ediliyor...\n\n📊 Günlük özet 17:50'de Gemini AI ile gönderilecek!"
     if bot.send_telegram_message(test_message):
         logger.info("Test mesajı gönderildi")
     else:
