@@ -398,6 +398,11 @@ class RSSNewsBot:
             }
             
             response = requests.post(url, data=data, timeout=30)
+            
+            # Hata durumunda detaylı log bas
+            if response.status_code != 200:
+                logger.error(f"Telegram API Hatası: {response.status_code} - {response.text}")
+                
             response.raise_for_status()
             
             logger.info("Telegram mesajı başarıyla gönderildi")
