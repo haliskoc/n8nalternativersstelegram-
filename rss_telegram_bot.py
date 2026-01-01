@@ -19,6 +19,7 @@ from openpyxl import Workbook
 import schedule
 import threading
 from bs4 import BeautifulSoup
+import re
 
 import json
 
@@ -458,6 +459,11 @@ class RSSNewsBot:
         try:
             soup = BeautifulSoup(summary_raw, "html.parser")
             summary = soup.get_text(separator=" ", strip=True)
+            
+            # Nature ve benzeri dergiler için metadata temizliği
+            # Örnek: "Nature, Published online: 17 December 2025; doi:10.1038/..."
+            summary = re.sub(r'^.*?, Published online:.*?; doi:\S+\s*', '', summary)
+            
         except Exception as e:
             logger.warning(f"HTML temizleme hatası: {e}")
             summary = summary_raw
