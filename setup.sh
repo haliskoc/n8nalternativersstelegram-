@@ -26,6 +26,8 @@ if [[ "$lang_choice" == "2" ]]; then
     MSG_RECREATE="Yeniden oluşturmak ister misiniz? (e/h): "
     MSG_USING_EXISTING="Mevcut konfigürasyon kullanılıyor."
     MSG_ENTER_INFO="Lütfen Telegram Bot bilgilerinizi girin:"
+    MSG_HELP_TOKEN="İpucu: Bot tokenini @BotFather'dan alabilirsiniz."
+    MSG_HELP_CHATID="İpucu: Chat ID'nizi @userinfobot'tan öğrenebilirsiniz."
     MSG_TOKEN_EMPTY="Token boş olamaz!"
     MSG_CHATID_EMPTY="Chat ID boş olamaz!"
     MSG_AI_HEADER="--- AI Ayarları (İsteğe Bağlı) ---"
@@ -52,6 +54,8 @@ else
     MSG_RECREATE="Do you want to recreate it? (y/n): "
     MSG_USING_EXISTING="Using existing configuration."
     MSG_ENTER_INFO="Please enter your Telegram Bot details:"
+    MSG_HELP_TOKEN="Tip: You can get your bot token from @BotFather."
+    MSG_HELP_CHATID="Tip: You can find your Chat ID using @userinfobot."
     MSG_TOKEN_EMPTY="Token cannot be empty!"
     MSG_CHATID_EMPTY="Chat ID cannot be empty!"
     MSG_AI_HEADER="--- AI Settings (Optional) ---"
@@ -100,14 +104,16 @@ if [ -f .env ]; then
 fi
 
 if [ ! -f .env ]; then
-    echo "$MSG_ENTER_INFO"
+    echo -e "${GREEN}${MSG_ENTER_INFO}${NC}"
     
+    echo -e "${BLUE}${MSG_HELP_TOKEN}${NC}"
     read -p "Telegram Bot Token: " token
     while [[ -z "$token" ]]; do
         echo -e "${RED}${MSG_TOKEN_EMPTY}${NC}"
         read -p "Telegram Bot Token: " token
     done
 
+    echo -e "\n${BLUE}${MSG_HELP_CHATID}${NC}"
     read -p "Chat ID: " chat_id
     while [[ -z "$chat_id" ]]; do
         echo -e "${RED}${MSG_CHATID_EMPTY}${NC}"
