@@ -40,8 +40,8 @@ Terminalinizi açın ve şu komutları çalıştırın:
 
 ```bash
 # 1. Clone the project / Projeyi indirin
-git clone https://github.com/username/rss-telegram-bot.git
-cd rss-telegram-bot
+git clone https://github.com/haliskoc/n8nalternativersstelegram-.git
+cd n8nalternativersstelegram-
 
 # 2. Run the setup script / Kurulum scriptini çalıştırın
 chmod +x setup.sh
