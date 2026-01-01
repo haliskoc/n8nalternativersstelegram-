@@ -671,9 +671,9 @@ class RSSNewsBot:
             logger.error(f"Günlük dosya temizleme hatası: {e}")
     
     def schedule_daily_summary(self):
-        """Günlük özet zamanlaması"""
-        schedule.every().day.at("18:35").do(self.send_daily_summary)
-        logger.info("Günlük özet 18:35'te gönderilecek şekilde zamanlandı")
+        """Günlük özet zamanlaması (Devre Dışı)"""
+        # schedule.every().day.at("18:35").do(self.send_daily_summary)
+        logger.info("Günlük özet zamanlaması devre dışı bırakıldı.")
     
     def check_and_renew_daily_file(self):
         """Günlük dosya kontrolü ve yenileme"""
