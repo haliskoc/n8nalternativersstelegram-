@@ -19,6 +19,8 @@ from openpyxl import Workbook
 import schedule
 import threading
 
+import json
+
 # Logging yapılandırması
 logging.basicConfig(
     level=logging.INFO,
@@ -48,8 +50,24 @@ class RSSNewsBot:
             except Exception as e:
                 logger.error(f"AI Client başlatılamadı: {e}")
         
-        # Varsayılan RSS feed listesi
-        if rss_urls is None:
+        # RSS feed listesini belirle
+        self.rss_urls = []
+        
+        # 1. Öncelik: Parametre olarak gelen liste
+        if rss_urls:
+            self.rss_urls = rss_urls
+        # 2. Öncelik: feeds.json dosyası
+        elif os.path.exists('feeds.json'):
+            try:
+                with open('feeds.json', 'r', encoding='utf-8') as f:
+                    self.rss_urls = json.load(f)
+                logger.info(f"feeds.json dosyasından {len(self.rss_urls)} adet kaynak yüklendi.")
+            except Exception as e:
+                logger.error(f"feeds.json okuma hatası: {e}")
+        
+        # 3. Öncelik: Varsayılan liste (Eğer yukarıdakiler boşsa)
+        if not self.rss_urls:
+            logger.info("Varsayılan RSS listesi kullanılıyor.")
             self.rss_urls = [
                 # Uluslararası Teknoloji Siteleri
                 "https://techcrunch.com/feed",
@@ -89,8 +107,6 @@ class RSSNewsBot:
                 "https://theconversation.com/global/topics/science-technology.rss",
                 "https://futurism.com/feed"
             ]
-        else:
-            self.rss_urls = rss_urls
             
         self.telegram_api_url = f"https://api.telegram.org/bot{telegram_token}"
         self.db_path = "news_bot.db"
@@ -99,10 +115,12 @@ class RSSNewsBot:
         self.init_daily_news_storage()
         
     def init_database(self):
-        """SQLite veritabanını başlat ve tabloyu oluştur"""
+        """SQLite veritabanını başlat ve tabloları oluştur"""
         try:
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()
+            
+            # Gönderilen haberlerin takibi için (Deduplication)
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS sent_news (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -112,9 +130,26 @@ class RSSNewsBot:
                     sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
             ''')
+            
+            # Tüm haberlerin detaylı arşivi için (Full History)
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS news_archive (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    news_hash TEXT UNIQUE NOT NULL,
+                    source TEXT,
+                    category TEXT,
+                    title TEXT,
+                    summary TEXT,
+                    link TEXT,
+                    published_date TIMESTAMP,
+                    analysis TEXT,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            ''')
+            
             conn.commit()
             conn.close()
-            logger.info("Veritabanı başarıyla başlatıldı")
+            logger.info("Veritabanı başarıyla başlatıldı (sent_news ve news_archive tabloları)")
         except Exception as e:
             logger.error(f"Veritabanı başlatma hatası: {e}")
     
@@ -135,6 +170,38 @@ class RSSNewsBot:
         except Exception as e:
             logger.error(f"Günlük haber depolama başlatma hatası: {e}")
     
+    def save_news_to_db(self, news_item: Dict, news_hash: str):
+        """Haberi detaylı olarak veritabanına kaydet"""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            
+            category = self.get_category_from_source(news_item.get('source', ''))
+            published_date = news_item.get('published')
+            if isinstance(published_date, datetime):
+                published_date = published_date.strftime('%Y-%m-%d %H:%M:%S')
+            
+            cursor.execute('''
+                INSERT OR IGNORE INTO news_archive 
+                (news_hash, source, category, title, summary, link, published_date, analysis)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (
+                news_hash,
+                news_item.get('source', 'Unknown'),
+                category,
+                news_item.get('title', ''),
+                news_item.get('summary', ''),
+                news_item.get('link', ''),
+                published_date,
+                news_item.get('analysis', '')
+            ))
+            
+            conn.commit()
+            conn.close()
+            logger.info(f"Haber veritabanına arşivlendi: {news_item.get('title', '')[:30]}...")
+        except Exception as e:
+            logger.error(f"Veritabanı arşivleme hatası: {e}")
+
     def save_news_to_excel(self, news_item: Dict):
         """Haberi Excel dosyasına kaydet"""
         try:
@@ -424,8 +491,10 @@ class RSSNewsBot:
                 
                 if self.send_telegram_message(message):
                     self.mark_news_sent(news_hash, news['title'], news['link'])
-                    # Haberi Excel'e kaydet
+                    # Haberi Veritabanına ve Excel'e kaydet
+                    self.save_news_to_db(news, news_hash)
                     self.save_news_to_excel(news)
+                    
                     new_news_count += 1
                     logger.info(f"Yeni haber gönderildi: {news['title'][:50]}...")
                     

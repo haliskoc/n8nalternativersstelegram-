@@ -62,6 +62,7 @@ if [[ $confirm == "e" || $confirm == "y" ]]; then
     rm -f .env
     rm -f news_bot.db
     rm -f rss_bot.log
+    rm -f feeds.json
     rm -f daily_news_*.xlsx
     echo -e "${GREEN}Dosyalar silindi.${NC}"
 fi

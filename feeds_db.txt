@@ -1,0 +1,768 @@
+Country: Australia|ABC News|https://www.abc.net.au/news/feed/1948/rss.xml
+Country: Australia|Brisbane Times - Latest News|https://www.brisbanetimes.com.au/rss/feed.xml
+Country: Australia|Business News - Latest Headlines|https://www.businessnews.com.au/rssfeed/latest.rss
+Country: Australia|Crikey|https://feeds.feedburner.com/com/rCTl
+Country: Australia|InDaily|https://indaily.com.au/feed/
+Country: Australia|Independent Australia|http://feeds.feedburner.com/IndependentAustralia
+Country: Australia|KUSA - News|http://rssfeeds.9news.com/kusa/home&x=1
+Country: Australia|Latest News and News Headlines - Daily Telegraph|https://www.dailytelegraph.com.au/news/breaking-news/rss
+Country: Australia|Latest News and News Headlines - Herald Sun|https://www.heraldsun.com.au/news/breaking-news/rss
+Country: Australia|Michael West|https://www.michaelwest.com.au/feed/
+Country: Australia|PerthNow|https://www.perthnow.com.au/news/feed
+Country: Australia|Sydney Morning Herald - Latest News|https://www.smh.com.au/rss/feed.xml
+Country: Australia|The Age - Latest News|https://www.theage.com.au/rss/feed.xml
+Country: Australia|The Canberra Times - Local News|https://www.canberratimes.com.au/rss.xml
+Country: Australia|The Courier Mail|https://www.couriermail.com.au/rss
+Country: Australia|The Mercury|https://www.themercury.com.au/rss
+Country: Bangladesh|BD24Live.com|https://www.bd24live.com/feed
+Country: Bangladesh|Bangla News|https://www.banglanews24.com/rss/rss.xml
+Country: Bangladesh|JUGANTOR|https://www.jugantor.com/feed/rss.xml
+Country: Bangladesh|The Daily Star|https://www.thedailystar.net/frontpage/rss.xml
+Country: Bangladesh|bdnews24.com - Home|https://bdnews24.com/?widgetName=rssfeed&widgetId=1150&getXmlFeed=true
+Country: Bangladesh|jagonews24.com - rss Feed|https://www.jagonews24.com/rss/rss.xml
+Country: Bangladesh|kalerkantho Kantho|https://www.kalerkantho.com/rss.xml
+Country: Bangladesh|প্রথম আলো|https://www.prothomalo.com/feed/
+Country: Brazil|Brasil Wire|http://www.brasilwire.com/feed/
+Country: Brazil|Folha de S.Paulo - Em cima da hora - Principal|https://feeds.folha.uol.com.br/emcimadahora/rss091.xml
+Country: Brazil|Jornal de Brasília|https://jornaldebrasilia.com.br/feed/
+Country: Brazil|Portal EBC - RSS|http://www.ebc.com.br/rss/feed.xml
+Country: Brazil|R7 - Notícias|https://noticias.r7.com/feed.xml
+Country: Brazil|The Rio Times|https://riotimesonline.com/feed/
+Country: Brazil|UOL|http://rss.home.uol.com.br/index.xml
+Country: Canada||https://globalnews.ca/feed/
+Country: Canada|CBC - Top Stories News|https://www.cbc.ca/cmlink/rss-topstories
+Country: Canada|CTVNews.ca - Top Stories - Public RSS|https://www.ctvnews.ca/rss/ctvnews-ca-top-stories-public-rss-1.822009
+Country: Canada|Financial Post|https://business.financialpost.com/feed/
+Country: Canada|LaPresse.ca - Actualités|https://www.lapresse.ca/actualites/rss
+Country: Canada|National Post|https://nationalpost.com/feed/
+Country: Canada|Ottawa Citizen|https://ottawacitizen.com/feed/
+Country: Canada|The Province|https://theprovince.com/feed/
+Country: Canada|Toronto Star|https://www.thestar.com/content/thestar/feed.RSSManagerServlet.articles.topstories.rss
+Country: Canada|Toronto Sun - RSS Feed|https://torontosun.com/category/news/feed
+Country: France|Franceinfo - Les Titres|https://www.francetvinfo.fr/titres.rss
+Country: France|L|https://www.nouvelobs.com/a-la-une/rss.xml
+Country: France|L&#039;essentiel|https://www.sudouest.fr/essentiel/rss.xml
+Country: France|La Dépêche du Midi : actualités et info en direct de la région Occitanie et des environs - ladepeche.fr|https://www.ladepeche.fr/rss.xml
+Country: France|Le Huffington Post|https://www.huffingtonpost.fr/feeds/index.xml
+Country: France|Le Monde.fr - Actualités et Infos en France et dans le monde|https://www.lemonde.fr/rss/une.xml
+Country: France|Mediapart|https://www.mediapart.fr/articles/feed
+Country: France|Ministry for Europe and Foreign Affairs - Actualités|https://www.diplomatie.gouv.fr/spip.php?page=backend-fd&lang=en
+Country: France|Ouest-France - Actualité|https://www.ouest-france.fr/rss-en-continu.xml
+Country: France|Paris Star|https://www.parisstaronline.com/feed
+Country: France|france24.com|https://www.france24.com/en/rss
+Country: Germany|Aktuell - FAZ.NET|https://www.faz.net/rss/aktuell/
+Country: Germany|Deutsche Welle|https://rss.dw.com/rdf/rss-en-all
+Country: Germany|FOCUS Online|https://rss.focus.de/fol/XML/rss_folnews.xml
+Country: Germany|ZEIT ONLINE - Nachrichten, Hintergründe und Debatten|http://newsfeed.zeit.de/index
+Country: Germany|tagesschau.de - Die Nachrichten der ARD|http://www.tagesschau.de/xml/rss2
+Country: Hong Kong SAR China|Hong Kong Free Press HKFP|https://www.hongkongfp.com/feed/
+Country: Hong Kong SAR China|The Standard - Latest News|https://www.thestandard.com.hk/newsfeed/latest/news.xml
+Country: Hong Kong SAR China|hongkongnews.net latest rss headlines|http://feeds.hongkongnews.net/rss/b82693edf38ebff8
+Country: Hong Kong SAR China|頭條日報 Headline Daily - 頭條網|https://hd.stheadline.com/rss/news/daily/
+Country: Hong Kong SAR China|香港新聞RSS - 香港經濟日報 hket.com|https://www.hket.com/rss/hongkong
+Country: India|BBC News - India|http://feeds.bbci.co.uk/news/world/asia/india/rss.xml
+Country: India|Business Line - Home|https://www.thehindubusinessline.com/feeder/default.rss
+Country: India|Deccan Chronicle - Latest India news - Breaking news - Hyderabad News - World news - Business news - Politics - Technology news|https://www.deccanchronicle.com/rss_feed/
+Country: India|Economic Times|https://economictimes.indiatimes.com/rssfeedsdefault.cms
+Country: India|Firstpost India Latest News|https://www.firstpost.com/rss/india.xml
+Country: India|Free Press Journal|https://www.freepressjournal.in/stories.rss
+Country: India|Front Page - The Indian Express|http://indianexpress.com/print/front-page/feed/
+Country: India|Home Page|https://www.business-standard.com/rss/home_page_top_stories.rss
+Country: India|India News|https://www.dnaindia.com/feeds/india.xml
+Country: India|India Today - Latest Stories|https://www.indiatoday.in/rss/home
+Country: India|India - The Guardian|https://www.theguardian.com/world/india/rss
+Country: India|JansattaJansatta|https://www.jansatta.com/feed/
+Country: India|Latest And Breaking Hindi News Headlines, News In Hindi - अमर उजाला हिंदी न्यूज़ - - Amar Ujala|https://www.amarujala.com/rss/breaking-news.xml
+Country: India|Latest News program News18 Lokmat|https://lokmat.news18.com/rss/program.xml
+Country: India|Live Hindustan Rss feed|https://feed.livehindustan.com/rss/3127
+Country: India|Loksattaदेश-विदेश &#8211; Loksatta|https://www.loksatta.com/desh-videsh/feed/
+Country: India|Marathi News: मराठी बातम्या,  Latest News in Marathi, Breaking Marathi News, Marathi News Paper - Maharashtra Times|https://maharashtratimes.com/rssfeedsdefault.cms
+Country: India|Moneycontrol Latest News|http://www.moneycontrol.com/rss/latestnews.xml
+Country: India|NDTV News -   Topstories|https://feeds.feedburner.com/ndtvnews-top-stories
+Country: India|Navbharat Times|https://navbharattimes.indiatimes.com/rssfeedsdefault.cms
+Country: India|News, Latest News, Today|https://www.oneindia.com/rss/news-fb.xml
+Country: India|OpIndia|https://feeds.feedburner.com/opindia
+Country: India|Outlook India|https://www.outlookindia.com/rss/main/magazine
+Country: India|Patrika : India|http://api.patrika.com/rss/india-news
+Country: India|SEBI RSS Feed|https://www.sebi.gov.in/sebirss.xml
+Country: India|Scroll.in|http://feeds.feedburner.com/ScrollinArticles.rss
+Country: India|Swarajya|https://prod-qt-images.s3.amazonaws.com/production/swarajya/feed.xml
+Country: India|TechGenyz|http://feeds.feedburner.com/techgenyz
+Country: India|The Financial Express|https://www.financialexpress.com/feed/
+Country: India|The Hindu - Home|https://www.thehindu.com/feeder/default.rss
+Country: India|ThePrint|https://theprint.in/feed/
+Country: India|Times of India|https://timesofindia.indiatimes.com/rssfeedstopstories.cms
+Country: India|Top Stories News - Gujarat Samachar : World|https://www.gujaratsamachar.com/rss/top-stories
+Country: India|Top World News- News18.com|https://www.news18.com/rss/world.xml
+Country: India|देश - दैनिक भास्कर|https://www.bhaskar.com/rss-feed/1061/
+Country: India|ઈન્ડિયા - દિવ્ય ભાસ્કર|https://www.divyabhaskar.co.in/rss-feed/1037/
+Country: Indonesia|Merdeka.com|https://www.merdeka.com/feed/
+Country: Indonesia|Republika Online RSS Feed|https://www.republika.co.id/rss/
+Country: Indonesia|Suara.com|https://www.suara.com/rss
+Country: Indonesia|Tribunnews.com|https://www.tribunnews.com/rss
+Country: Iran|اخبار ایران و جهان|https://www.tasnimnews.com/fa/rss/feed/0/8/0/%D9%85%D9%87%D9%85%D8%AA%D8%B1%DB%8C%D9%86-%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-%D8%AA%D8%B3%D9%86%DB%8C%D9%85
+Country: Iran|تابناک - TABNAK|https://www.tabnak.ir/fa/rss/allnews
+Country: Iran|خبرگزاری ایسنا - صفحه اصلی -  ISNA News Agency|https://www.isna.ir/rss
+Country: Iran|خبرگزاری باشگاه خبرنگاران - آخرین اخبار ایران و جهان - YJC|https://www.yjc.ir/fa/rss/allnews
+Country: Iran|خبرگزاری خبرآنلاین - آخرین اخبار ایران و جهان - Khabaronline|https://www.khabaronline.ir/rss
+Country: Iran|خبرگزاری مهر - اخبار ایران و جهان - Mehr News Agency|https://www.mehrnews.com/rss
+Country: Iran|عصر ايران|https://www.asriran.com/fa/rss/allnews
+Country: Ireland|All: BreakingNews.ie|https://feeds.breakingnews.ie/bntopstories
+Country: Ireland|Irish Mirror - Home|https://www.irishmirror.ie/?service=rss
+Country: Ireland|IrishCentral.com - Top Stories|https://feeds.feedburner.com/IrishCentral
+Country: Ireland|IrishExaminer.com|https://feeds.feedburner.com/ietopstories
+Country: Ireland|The42|https://www.the42.ie/feed/
+Country: Ireland|TheJournal.ie|https://www.thejournal.ie/feed/
+Country: Italy|Adnkronos - ultimoratop|http://rss.adnkronos.com/RSS_PrimaPagina.xml
+Country: Italy|Fanpage|https://www.fanpage.it/feed/
+Country: Italy|Il Mattino Web|https://www.ilmattino.it/?sez=XML&args&p=search&args[box]=Home&limit=20&layout=rss
+Country: Italy|Il Post|https://www.ilpost.it/feed/
+Country: Italy|Internazionale|https://www.internazionale.it/sitemaps/rss.xml
+Country: Italy|Italy - The Guardian|https://www.theguardian.com/world/italy/rss
+Country: Italy|Libero Quotidiano|https://www.liberoquotidiano.it/rss.xml
+Country: Italy|Milan News|https://www.milannews.it/rss/
+Country: Italy|Panorama|https://www.panorama.it/feeds/feed.rss
+Country: Italy|RSS DiariodelWeb.it|https://www.diariodelweb.it/rss/home/
+Country: Italy|RSS di   - ANSA.it|https://www.ansa.it/sito/ansait_rss.xml
+Country: Italy|The Local|https://feeds.thelocal.com/rss/it
+Country: Japan|All - Kyodo News+|https://english.kyodonews.net/rss/all.xml
+Country: Japan|BRIDGE（ブリッジ）テクノロジー＆スタートアップ情報|http://feeds.feedburner.com/SdJapan
+Country: Japan|Japan Times latest articles|https://www.japantimes.co.jp/feed/topstories/
+Country: Japan|Japan Today|https://japantoday.com/feed
+Country: Japan|News On Japan|http://www.newsonjapan.com/rss/top.xml
+Country: Japan|ライブドアニュース - 主要トピックス|https://news.livedoor.com/topics/rss/top.xml
+Country: Japan|朝日新聞デジタル|http://rss.asahi.com/rss/asahi/newsheadlines.rdf
+Country: Mexico||https://www.eluniversal.com.mx/seccion/1671/rss.xml
+Country: Mexico|24 Horas|https://www.24-horas.mx/feed/
+Country: Mexico|8 Columnas|https://8columnas.com.mx/feed/
+Country: Mexico|DEBATE|https://www.debate.com.mx/rss/feed.xml
+Country: Mexico|El Diario|https://diario.mx/jrz/media/sitemaps/rss.xml
+Country: Mexico|El Financiero|https://www.elfinanciero.com.mx/arc/outboundfeeds/rss/?outputType=xml
+Country: Mexico|El Informador :: Noticias de Jalisco, México, Deportes & Entretenimiento|https://www.informador.mx/rss/ultimas-noticias.xml
+Country: Mexico|ElNorte|https://www.elnorte.com/rss/portada.xml
+Country: Mexico|Excélsior - RSS|https://www.excelsior.com.mx/rss.xml
+Country: Mexico|Lo último en Vanguardia MX|https://vanguardia.com.mx/rss.xml
+Country: Mexico|Mexico News Daily|https://mexiconewsdaily.com/feed/
+Country: Mexico|Mexico - The Guardian|https://www.theguardian.com/world/mexico/rss
+Country: Mexico|Portada, El Siglo de Torreón|https://www.elsiglodetorreon.com.mx/index.xml
+Country: Mexico|Reforma|https://www.reforma.com/rss/portada.xml
+Country: Mexico|Tu Periódico Quequi|https://quequi.com.mx/feed/
+Country: Myanmar (Burma)|DVB Multimedia Group|http://www.dvb.no/feed
+Country: Myanmar (Burma)|Myanmar Gazette News Media Forum Network|http://myanmargazette.net/feed
+Country: Myanmar (Burma)|THIT HTOO LWIN (Daily News)|http://www.thithtoolwin.com/feeds/posts/default
+Country: Nigeria|All Content|http://saharareporters.com/feeds/latest/feed
+Country: Nigeria|Daily Post Nigeria|https://dailypost.ng/feed
+Country: Nigeria|Information Nigeria|https://www.informationng.com/feed
+Country: Nigeria|Latest Nigeria News, Nigerian Newspapers, Politics|https://thenationonlineng.net/feed/
+Country: Nigeria|Legit.ng|https://www.legit.ng/rss/all.rss
+Country: Nigeria|Nigeria News Links - Today|https://www.nigerianbulletin.com/forums/-/index.rss
+Country: Nigeria|Nigerian News. Latest Nigeria News. Your online Nigerian Newspaper.|http://feeds.feedburner.com/Nigerianeye
+Country: Nigeria|Premium Times Nigeria|https://www.premiumtimesng.com/feed
+Country: Nigeria|The Guardian Nigeria News – Nigeria and World News|https://guardian.ng/feed/
+Country: Nigeria|Tribune Online|http://tribuneonlineng.com/feed/
+Country: Pakistan|News Blog|https://newsnblogs.com/feed/
+Country: Pakistan|The Express Tribune|https://tribune.com.pk/feed/home
+Country: Pakistan|The Nation - Top Stories|https://nation.com.pk/rss/top-stories
+Country: Pakistan|The News International - Pakistan|https://www.thenews.com.pk/rss/1/1
+Country: Pakistan|UrduPoint.com All Urdu News|https://www.urdupoint.com/rss/urdupoint.rss
+Country: Pakistan|ایکسپریس اردو|https://www.express.pk/feed/
+Country: Pakistan|قومی خبریں|https://jang.com.pk/rss/1/1
+Country: Philippines|- The Manila Times|https://www.manilatimes.net/rssfeed/
+Country: Philippines|Abante Tonite|https://tonite.abante.com.ph/feed/
+Country: Philippines|BICOL STANDARD - Bicol News - Bicol Newspaper|http://www.bicolstandard.com/feeds/posts/default?alt=rss
+Country: Philippines|BusinessMirror|https://businessmirror.com.ph/feed/
+Country: Philippines|BusinessWorld|https://www.bworldonline.com/feed/
+Country: Philippines|Current PH|https://currentph.com/feed/
+Country: Philippines|Eagle News|https://www.eaglenews.ph/feed/
+Country: Philippines|GMA News Online / News|https://data.gmanews.tv/gno/rss/news/feed.xml
+Country: Philippines|INQUIRER.net|https://www.inquirer.net/fullfeed
+Country: Philippines|Interaksyon|https://www.interaksyon.com/feed/
+Country: Philippines|Latest News - Philippine Information Agency|https://pia.gov.ph/news/feed.rss
+Country: Philippines|Latest News - Philippine News Agency|https://www.pna.gov.ph/latest.rss
+Country: Philippines|Manila Standard|https://manilastandard.net/feed/all
+Country: Philippines|PhilNews.XYZ|https://www.philnews.xyz/feeds/posts/default?alt=rss
+Country: Philippines|TechPinas : Philippines|http://feeds.feedburner.com/Techpinas
+Country: Philippines|Tempo – The Nation|http://tempo.com.ph/feed/
+Country: Philippines|Top Gear: The Philippine authority on cars and the automotive industry|https://www.topgear.com.ph/feed/rss1
+Country: Philippines|UNBOX PH|https://www.unbox.ph/feed/
+Country: Philippines|https://www.sunstar.com.ph/|https://www.sunstar.com.ph/rssFeed/selected
+Country: Philippines|philstar.com - RSS Headlines|https://www.philstar.com/rss/headlines
+Country: Poland|Dziennik.pl Dziennik - dziennik.pl|http://rss.dziennik.pl/Dziennik-PL/
+Country: Poland|GazetaPrawna.pl - biznes, podatki, prawo, finanse, wiadomości, praca|http://rss.gazetaprawna.pl/GazetaPrawna
+Country: Poland|Najnowsze|http://feeds.feedburner.com/wPolitycepl
+Country: Poland|Newsweek Polska|https://www.newsweek.pl/rss.xml
+Country: Poland|Polska Agencja Prasowa SA|https://www.pap.pl/rss.xml
+Country: Poland|RMF24.pl|https://www.rmf24.pl/feed
+Country: Poland|https://www.rp.pl|https://www.rp.pl/rss/1019
+Country: Poland|www.wirtualnemedia.pl|https://www.wirtualnemedia.pl/rss/wirtualnemedia_rss.xml
+Country: Russia|Lenta.ru : Новости|https://lenta.ru/rss
+Country: Russia|Meduza.io|https://meduza.io/rss/all
+Country: Russia|NEWSru.com :: Главные новости|https://rss.newsru.com/top/big/
+Country: Russia|PravdaReport|https://www.pravdareport.com/export.xml
+Country: Russia|RT - Daily news|https://www.rt.com/rss/
+Country: Russia|Russia Insider Daily Headlines|https://russia-insider.com/en/all-content/rss
+Country: Russia|TASS|http://tass.com/rss/v2.xml
+Country: Russia|The Moscow Times - Independent News From Russia|https://www.themoscowtimes.com/rss/news
+Country: Russia|Вести.Ru|https://www.vesti.ru/vesti.rss
+Country: Russia|Все материалы - Московский Комсомолец|https://www.mk.ru/rss/index.xml
+Country: Russia|Газета|https://www.kommersant.ru/RSS/main.xml
+Country: Russia|Газета.Ru - Первая полоса|https://www.gazeta.ru/export/rss/first.xml
+Country: Russia|Российская Газета|https://rg.ru/xml/index.xml
+Country: South Africa|Axios|https://api.axios.com/feed/
+Country: South Africa|Daily Maverick|https://www.dailymaverick.co.za/dmrss/
+Country: South Africa|Eyewitness News - Latest News|https://ewn.co.za/RSS%20Feeds/Latest%20News
+Country: South Africa|IOL section feed for News|http://rss.iol.io/iol/news
+Country: South Africa|Moneyweb|https://www.moneyweb.co.za/feed/
+Country: South Africa|News24 Top Stories|http://feeds.news24.com/articles/news24/TopStories/rss
+Country: South Africa|SowetanLIVE|https://www.sowetanlive.co.za/rss/?publication=sowetan-live
+Country: South Africa|TechCentral|https://techcentral.co.za/feed
+Country: South Africa|The Citizen|https://citizen.co.za/feed/
+Country: South Africa|The South African|https://www.thesouthafrican.com/feed/
+Country: South Africa|TimesLIVE|https://www.timeslive.co.za/rss/
+Country: Spain|Agencia EFE - www.efe.com - English edition|https://www.efe.com/efe/english/4/rss
+Country: Spain|EL PAÍS: el periódico global|https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada
+Country: Spain|El Periódico - portada|https://www.elperiodico.com/es/rss/rss_portada.xml
+Country: Spain|ElDiario.es - ElDiario.es|https://www.eldiario.es/rss/
+Country: Spain|España|https://rss.elconfidencial.com/espana/
+Country: Spain|Euro Weekly News Spain|https://www.euroweeklynews.com/feed/
+Country: Spain|Portada // expansion|https://e00-expansion.uecdn.es/rss/portada.xml
+Country: Spain|The Local|https://feeds.thelocal.com/rss/es
+Country: Spain|huffingtonpost.es|https://www.huffingtonpost.es/feeds/index.xml
+Country: Ukraine|Gazeta.ua|https://gazeta.ua/rss
+Country: Ukraine|News Agency UNIAN|https://rss.unian.net/site/news_eng.rss
+Country: Ukraine|Вести.ua|https://vesti.ua/feeds/partners
+Country: Ukraine|Гордон - Самые популярные материалы|https://gordonua.com/xml/rss_category/top.html
+Country: Ukraine|Еспресо - український погляд на світ!|https://espreso.tv/rss
+Country: Ukraine|Информационное агентство УНИАН|https://rss.unian.net/site/news_rus.rss
+Country: Ukraine|НВ|https://nv.ua/rss/all.xml
+Country: Ukraine|Новини на tsn.ua|https://tsn.ua/rss/full.rss
+Country: Ukraine|Последние новости на сайте korrespondent.net|http://k.img.com.ua/rss/ru/all_news2.0.xml
+Country: Ukraine|ТЕЛЕГРАФ - последние новости Украины и мира|https://telegraf.com.ua/yandex-feed/
+Country: Ukraine|Українська правда|https://www.pravda.com.ua/rss/
+Country: Ukraine|Цензор.НЕТ - Новости|https://censor.net.ua/includes/news_ru.xml
+Country: United Kingdom|BBC News - Home|http://feeds.bbci.co.uk/news/rss.xml
+Country: United Kingdom|Daily Express :: News Feed|http://feeds.feedburner.com/daily-express-news-showbiz
+Country: United Kingdom|Home - Mail Online|https://www.dailymail.co.uk/home/index.rss
+Country: United Kingdom|The Independent|http://www.independent.co.uk/news/uk/rss
+Country: United Kingdom|World news - The Guardian|https://www.theguardian.com/world/rss
+Country: United States|CNN.com - RSS Channel - App International Edition|http://rss.cnn.com/rss/edition.rss
+Country: United States|FOX News|http://feeds.foxnews.com/foxnews/latest
+Country: United States|Playbook|https://rss.politico.com/playbook.xml
+Country: United States|US Top News and Analysis|https://www.cnbc.com/id/100003114/device/rss/rss.html
+Country: United States|WSJ.com: World News|https://feeds.a.dj.com/rss/RSSWorldNews.xml
+Country: United States|World|http://feeds.washingtonpost.com/rss/world
+Country: United States|World & Nation|https://www.latimes.com/world-nation/rss2.0.xml
+Country: United States|World News - Breaking News, Top Stories|https://www.huffpost.com/section/world-news/feed
+Country: United States|Yahoo News - Latest News & Headlines|https://news.yahoo.com/rss/mostviewed
+Topic: Android|All About Android (Audio)|https://feeds.twit.tv/aaa.xml
+Topic: Android|Android|https://blog.google/products/android/rss
+Topic: Android|Android|https://www.reddit.com/r/android/.rss
+Topic: Android|Android Authority|https://www.androidauthority.com/feed
+Topic: Android|Android Authority|https://www.youtube.com/feeds/videos.xml?user=AndroidAuthority
+Topic: Android|Android Authority Podcast|https://androidauthority.libsyn.com/rss
+Topic: Android|Android Central - Android Forums, News, Reviews, Help and Android Wallpapers|http://feeds.androidcentral.com/androidcentral
+Topic: Android|Android Central Podcast|http://feeds.feedburner.com/AndroidCentralPodcast
+Topic: Android|Android Community|https://androidcommunity.com/feed/
+Topic: Android|Android Police – Android news, reviews, apps, games, phones, tablets|http://feeds.feedburner.com/AndroidPolice
+Topic: Android|AndroidGuys|https://www.androidguys.com/feed
+Topic: Android|Cult of Android|https://www.cultofandroid.com/feed
+Topic: Android|Cyanogen Mods|https://www.cyanogenmods.org/feed
+Topic: Android|Droid Life|https://www.droid-life.com/feed
+Topic: Android|GSMArena.com - Latest articles|https://www.gsmarena.com/rss-news-reviews.php3
+Topic: Android|Phandroid|http://feeds2.feedburner.com/AndroidPhoneFans
+Topic: Android|TalkAndroid|http://feeds.feedburner.com/AndroidNewsGoogleAndroidForums
+Topic: Android|xda-developers|https://data.xda-developers.com/portal-feed
+Topic: Android Development|Android - Buffer Resources|https://buffer.com/resources/android/rss/
+Topic: Android Development|Android Developers|https://www.youtube.com/feeds/videos.xml?user=androiddevelopers
+Topic: Android Development|Android Developers - Medium|https://medium.com/feed/androiddevelopers
+Topic: Android Development|Android Developers Backstage|http://feeds.feedburner.com/blogspot/androiddevelopersbackstage
+Topic: Android Development|Android Developers Blog|http://feeds.feedburner.com/blogspot/hsDu
+Topic: Android Development|Android Weekly Archive Feed|https://us2.campaign-archive.com/feed?u=887caf4f48db76fd91e20a06d&id=4eb677ad19
+Topic: Android Development|Android in Instagram Engineering on Medium|https://instagram-engineering.com/feed/tagged/android
+Topic: Android Development|Android in MindOrks on Medium|https://medium.com/feed/mindorks/tagged/android
+Topic: Android Development|Android in The Airbnb Tech Blog on Medium|https://medium.com/feed/airbnb-engineering/tagged/android
+Topic: Android Development|Dan Lew Codes|https://blog.danlew.net/rss/
+Topic: Android Development|Developing Android Apps|https://reddit.com/r/androiddev.rss
+Topic: Android Development|Fragmented - The Software Podcast|https://feeds.simplecast.com/LpAGSLnY
+Topic: Android Development|Handstand Sam|https://handstandsam.com/feed/
+Topic: Android Development|Jake Wharton|https://jakewharton.com/atom.xml
+Topic: Android Development|JetBrains News - JetBrains Blog|https://blog.jetbrains.com/blog/feed
+Topic: Android Development|Joe Birch|https://joebirch.co/feed
+Topic: Android Development|Kotlin|https://www.youtube.com/feeds/videos.xml?playlist_id=PLQ176FUIyIUa6SChjajjVc-LMzxWiz6dy
+Topic: Android Development|Kt. Academy - Medium|https://blog.kotlin-academy.com/feed
+Topic: Android Development|OkKotlin|https://okkotlin.com/rss.xml
+Topic: Android Development|ProAndroidDev - Medium|https://proandroiddev.com/feed
+Topic: Android Development|Public Object|https://publicobject.com/rss/
+Topic: Android Development|Styling Android|http://feeds.feedburner.com/StylingAndroid
+Topic: Android Development|Talking Kotlin|https://feeds.soundcloud.com/users/soundcloud:users:280353173/sounds.rss
+Topic: Android Development|The Android Arsenal|https://feeds.feedburner.com/Android_Arsenal
+Topic: Android Development|Zac Sweers|https://www.zacsweers.dev/rss/
+Topic: Android Development|Zarah Dominguez|https://zarah.dev/feed.xml
+Topic: Android Development|chRyNaN Codes|https://chrynan.codes/rss/
+Topic: Android Development|droidcon NYC|https://www.youtube.com/feeds/videos.xml?channel_id=UCSLXy31j2Z0sdDeeAX5JpPw
+Topic: Android Development|droidcon SF|https://www.youtube.com/feeds/videos.xml?channel_id=UCKubKoe1CBw_-n_GXetEQbg
+Topic: Android Development|goobar|https://goobar.io/feed
+Topic: Android Development|zsmb.co|https://zsmb.co/index.xml
+Topic: Apple|9to5Mac|https://9to5mac.com/feed
+Topic: Apple|Apple|https://www.youtube.com/feeds/videos.xml?user=Apple
+Topic: Apple|Apple Newsroom|https://www.apple.com/newsroom/rss-feed.rss
+Topic: Apple|AppleInsider News|https://appleinsider.com/rss/news/
+Topic: Apple|Cult of Mac|https://www.cultofmac.com/feed
+Topic: Apple|Daring Fireball|https://daringfireball.net/feeds/main
+Topic: Apple|MacRumors|https://www.youtube.com/feeds/videos.xml?user=macrumors
+Topic: Apple|MacRumors: Mac News and Rumors - Mac Blog|http://feeds.macrumors.com/MacRumors-Mac
+Topic: Apple|MacStories|https://www.macstories.net/feed
+Topic: Apple|Macworld.com|https://www.macworld.com/index.rss
+Topic: Apple|Marco.org|https://marco.org/rss
+Topic: Apple|OS X Daily|http://feeds.feedburner.com/osxdaily
+Topic: Apple|The Loop|https://www.loopinsight.com/feed
+Topic: Apple|The unofficial Apple community|https://www.reddit.com/r/apple/.rss
+Topic: Apple|iMore - The #1 iPhone, iPad, and iPod touch blog|http://feeds.feedburner.com/TheiPhoneBlog
+Topic: Apple|r/iPhone|https://www.reddit.com/r/iphone/.rss
+Topic: Architecture|A Daily Dose of Architecture Books|http://feeds.feedburner.com/archidose
+Topic: Architecture|ArchDaily|http://feeds.feedburner.com/Archdaily
+Topic: Architecture|Archinect - News|https://archinect.com/feed/1/news
+Topic: Architecture|Architectural Digest|https://www.architecturaldigest.com/feed/rss
+Topic: Architecture|Architectural Digest|https://www.youtube.com/feeds/videos.xml?user=ArchitecturalDigest
+Topic: Architecture|Architecture|https://www.reddit.com/r/architecture/.rss
+Topic: Architecture|Architecture – Dezeen|https://www.dezeen.com/architecture/feed/
+Topic: Architecture|CONTEMPORIST|https://www.contemporist.com/feed/
+Topic: Architecture|Comments on:|https://inhabitat.com/architecture/feed/
+Topic: Architecture|Design MilkArchitecture – Design Milk|https://design-milk.com/category/architecture/feed/
+Topic: Architecture|Journal|https://architizer.wpengine.com/feed/
+Topic: Architecture|Living Big In A Tiny House|https://www.youtube.com/feeds/videos.xml?user=livingbigtinyhouse
+Topic: Architecture|The Architect’s Newspaper|https://archpaper.com/feed
+Topic: Architecture|architecture – designboom - architecture & design magazine|https://www.designboom.com/architecture/feed/
+Topic: Beauty|Beauty - ELLE|https://www.elle.com/rss/beauty.xml/
+Topic: Beauty|Beauty - Fashionista|https://fashionista.com/.rss/excerpt/beauty
+Topic: Beauty|Beauty – Indian Fashion Blog|https://www.fashionlady.in/category/beauty-tips/feed
+Topic: Beauty|Blog – The Beauty Brains|https://thebeautybrains.com/blog/feed/
+Topic: Beauty|DORÉ|https://www.wearedore.com/feed
+Topic: Beauty|From Head To Toe|http://feeds.feedburner.com/frmheadtotoe
+Topic: Beauty|Into The Gloss - Beauty Tips, Trends, And Product Reviews|https://feeds.feedburner.com/intothegloss/oqoU
+Topic: Beauty|POPSUGAR Beauty|https://www.popsugar.com/beauty/feed
+Topic: Beauty|Refinery29|https://www.refinery29.com/beauty/rss.xml
+Topic: Beauty|THE YESSTYLIST – Asian Fashion Blog – brought to you by YesStyle.com|https://www.yesstyle.com/blog/category/the-beauty-blog/feed/
+Topic: Beauty|The Beauty Look Book|https://thebeautylookbook.com/feed
+Topic: Books|A year of reading the world|https://ayearofreadingtheworld.com/feed/
+Topic: Books|Aestas Book Blog|https://aestasbookblog.com/feed/
+Topic: Books|BOOK RIOT|https://bookriot.com/feed/
+Topic: Books|Kirkus Reviews|https://www.kirkusreviews.com/feeds/rss/
+Topic: Books|Page Array – NewInBooks|https://www.newinbooks.com/feed/
+Topic: Books|So many books, so little time|https://reddit.com/r/books/.rss
+Topic: Books|Wokeread|https://wokeread.home.blog/feed/
+Topic: Business & Economy|All News|https://www.investing.com/rss/news.rss
+Topic: Business & Economy|Bloomberg Quicktake|https://www.youtube.com/feeds/videos.xml?user=Bloomberg
+Topic: Business & Economy|Breaking News on Seeking Alpha|https://seekingalpha.com/market_currents.xml
+Topic: Business & Economy|Business Insider|https://www.youtube.com/feeds/videos.xml?user=businessinsider
+Topic: Business & Economy|Duct Tape Marketing|https://ducttape.libsyn.com/rss
+Topic: Business & Economy|Economic Times|https://economictimes.indiatimes.com/rssfeedsdefault.cms
+Topic: Business & Economy|Forbes - Business|https://www.forbes.com/business/feed/
+Topic: Business & Economy|Fortune|https://fortune.com/feed
+Topic: Business & Economy|HBR IdeaCast|http://feeds.harvardbusiness.org/harvardbusiness/ideacast
+Topic: Business & Economy|Home Page|https://www.business-standard.com/rss/home_page_top_stories.rss
+Topic: Business & Economy|Startup Stories - Mixergy|https://feeds.feedburner.com/Mixergy-main-podcast
+Topic: Business & Economy|The Blog of Author Tim Ferriss|https://tim.blog/feed/
+Topic: Business & Economy|The Growth Show|http://thegrowthshow.hubspot.libsynpro.com/
+Topic: Business & Economy|US Top News and Analysis|https://www.cnbc.com/id/100003114/device/rss/rss.html
+Topic: Business & Economy|Yahoo Finance|https://finance.yahoo.com/news/rssindex
+Topic: Cars|Autoblog|https://www.autoblog.com/rss.xml
+Topic: Cars|Autocar India - All Bike Reviews|https://www.autocarindia.com/RSS/rss.ashx?type=all_bikes
+Topic: Cars|Autocar India - All Car Reviews|https://www.autocarindia.com/RSS/rss.ashx?type=all_cars
+Topic: Cars|Autocar India - News|https://www.autocarindia.com/RSS/rss.ashx?type=News
+Topic: Cars|Autocar RSS Feed|https://www.autocar.co.uk/rss
+Topic: Cars|BMW BLOG|https://feeds.feedburner.com/BmwBlog
+Topic: Cars|Bike EXIF|https://www.bikeexif.com/feed
+Topic: Cars|Car Body Design|https://www.carbodydesign.com/feed/
+Topic: Cars|Carscoops|https://www.carscoops.com/feed/
+Topic: Cars|Formula 1|https://www.reddit.com/r/formula1/.rss
+Topic: Cars|Jalopnik|https://jalopnik.com/rss
+Topic: Cars|Latest Content - Car and Driver|https://www.caranddriver.com/rss/all.xml/
+Topic: Cars|Petrolicious|https://petrolicious.com/feed
+Topic: Cars|Section Page News - Automotive News|http://feeds.feedburner.com/autonews/AutomakerNews
+Topic: Cars|Section Page News - Automotive News|http://feeds.feedburner.com/autonews/EditorsPicks
+Topic: Cars|Speedhunters|http://feeds.feedburner.com/speedhunters
+Topic: Cars|The Truth About Cars|https://www.thetruthaboutcars.com/feed/
+Topic: Cars|The best vintage and classic cars for sale online - Bring a Trailer|https://bringatrailer.com/feed/
+Topic: Cricket|BBC Sport - Cricket|http://feeds.bbci.co.uk/sport/cricket/rss.xml
+Topic: Cricket|Can|http://feeds.feedburner.com/cantbowlcantthrow
+Topic: Cricket|Cricbuzz|https://www.youtube.com/feeds/videos.xml?channel_id=UCSRQXk5yErn4e14vN76upOw
+Topic: Cricket|Cricket|https://www.reddit.com/r/Cricket/.rss
+Topic: Cricket|Cricket news from ESPN Cricinfo.com|http://www.espncricinfo.com/rss/content/story/feeds/0.xml
+Topic: Cricket|Cricket - The Guardian|https://www.theguardian.com/sport/cricket/rss
+Topic: Cricket|Cricket – The Roar|https://www.theroar.com.au/cricket/feed/
+Topic: Cricket|England & Wales Cricket Board|https://www.youtube.com/feeds/videos.xml?user=ecbcricket
+Topic: Cricket|NDTV Sports - Cricket|http://feeds.feedburner.com/ndtvsports-cricket
+Topic: Cricket|Pakistan Cricket|https://www.youtube.com/feeds/videos.xml?channel_id=UCiWrjBhlICf_L_RK5y6Vrxw
+Topic: Cricket|Sky Sports Cricket Podcast|https://www.spreaker.com/show/3387348/episodes/feed
+Topic: Cricket|Sri Lanka Cricket|https://www.youtube.com/feeds/videos.xml?user=TheOfficialSLC
+Topic: Cricket|Stumped|https://podcasts.files.bbci.co.uk/p02gsrmh.rss
+Topic: Cricket|Switch Hit Podcast|https://feeds.megaphone.fm/ESP9247246951
+Topic: Cricket|Tailenders|https://podcasts.files.bbci.co.uk/p02pcb4w.rss
+Topic: Cricket|Test Match Special|https://podcasts.files.bbci.co.uk/p02nrsl2.rss
+Topic: Cricket|The Grade Cricketer|https://rss.whooshkaa.com/rss/podcast/id/1308
+Topic: Cricket|Wisden|https://www.wisden.com/feed
+Topic: Cricket|Wisden Cricket Weekly|http://feeds.soundcloud.com/users/soundcloud:users:341034518/sounds.rss
+Topic: Cricket|cricket.com.au|https://www.youtube.com/feeds/videos.xml?user=cricketaustraliatv
+Topic: DIY|A Beautiful Mess|https://abeautifulmess.com/feed
+Topic: DIY|Apartment Therapy- Saving the world, one room at a time|https://www.apartmenttherapy.com/projects.rss
+Topic: DIY|Blog – Hackaday|https://hackaday.com/blog/feed/
+Topic: DIY|Centsational Style|https://centsationalstyle.com/feed/
+Topic: DIY|Doityourself.com|https://www.doityourself.com/feed
+Topic: DIY|Etsy Journal|https://blog.etsy.com/en/feed/
+Topic: DIY|How-To Geek|https://www.howtogeek.com/feed/
+Topic: DIY|IKEA Hackers|https://www.ikeahackers.net/feed
+Topic: DIY|MUO - Feed|https://www.makeuseof.com/feed/
+Topic: DIY|Oh Happy Day!|http://ohhappyday.com/feed/
+Topic: DIY|WonderHowTo|https://www.wonderhowto.com/rss.xml
+Topic: Fashion|Fashion - ELLE|https://www.elle.com/rss/fashion.xml/
+Topic: Fashion|Fashion - The Guardian|https://www.theguardian.com/fashion/rss
+Topic: Fashion|Fashion – Indian Fashion Blog|https://www.fashionlady.in/category/fashion/feed
+Topic: Fashion|FashionBeans Men|https://www.fashionbeans.com/rss-feed/?category=fashion
+Topic: Fashion|Fashionista|https://fashionista.com/.rss/excerpt/
+Topic: Fashion|POPSUGAR Fashion|https://www.popsugar.com/fashion/feed
+Topic: Fashion|Refinery29|https://www.refinery29.com/fashion/rss.xml
+Topic: Fashion|THE YESSTYLIST – Asian Fashion Blog – brought to you by YesStyle.com|https://www.yesstyle.com/blog/category/trend-and-style/feed/
+Topic: Fashion|Who What Wear|https://www.whowhatwear.com/rss
+Topic: Food|101 Cookbooks|https://www.101cookbooks.com/feed
+Topic: Food|Babish Culinary Universe|https://www.youtube.com/feeds/videos.xml?user=bgfilms
+Topic: Food|Bon Appétit|https://www.youtube.com/feeds/videos.xml?user=BonAppetitDotCom
+Topic: Food|Chocolate & Zucchini|https://cnz.to/feed/
+Topic: Food|David Lebovitz|https://www.davidlebovitz.com/feed/
+Topic: Food|Food52|http://feeds.feedburner.com/food52-TheAandMBlog
+Topic: Food|Green Kitchen Stories|https://greenkitchenstories.com/feed/
+Topic: Food|How Sweet Eats|https://www.howsweeteats.com/feed/
+Topic: Food|Joy the Baker|http://joythebaker.com/feed/
+Topic: Food|Kitchn - Inspiring cooks, nourishing homes|https://www.thekitchn.com/main.rss
+Topic: Food|Laura in the Kitchen|https://www.youtube.com/feeds/videos.xml?user=LauraVitalesKitchen
+Topic: Food|Love and Olive Oil|https://www.loveandoliveoil.com/feed
+Topic: Food|Oh She Glows|https://ohsheglows.com/feed/
+Topic: Food|Serious Eats|https://www.youtube.com/feeds/videos.xml?user=SeriousEats
+Topic: Food|Serious Eats: Recipes|http://feeds.feedburner.com/seriouseats/recipes
+Topic: Food|Shutterbean|http://www.shutterbean.com/feed/
+Topic: Food|Skinnytaste|https://www.skinnytaste.com/feed/
+Topic: Food|Sprouted Kitchen|https://www.sproutedkitchen.com/home?format=rss
+Topic: Food|Williams-Sonoma Taste|https://blog.williams-sonoma.com/feed/
+Topic: Food|smitten kitchen|http://feeds.feedburner.com/smittenkitchen
+Topic: Football|EFL Championship|https://www.reddit.com/r/Championship/.rss?format=xml
+Topic: Football|Football - The People|https://www.reddit.com/r/football/.rss?format=xml
+Topic: Football|Football News, Live Scores, Results &amp; Transfers - Goal.com|https://www.goal.com/feeds/en/news
+Topic: Football|Football365|https://www.football365.com/feed
+Topic: Football|Soccer News|https://www.soccernews.com/feed
+Topic: Funny|AwkwardFamilyPhotos.com|https://awkwardfamilyphotos.com/feed/
+Topic: Funny|Cracked: All Posts|http://feeds.feedburner.com/CrackedRSS
+Topic: Funny|Explosm.net|http://feeds.feedburner.com/Explosm
+Topic: Funny|FAIL Blog|http://feeds.feedburner.com/failblog
+Topic: Funny|I Can Has Cheezburger?|http://feeds.feedburner.com/icanhascheezburger
+Topic: Funny|PHD Comics|http://phdcomics.com/gradfeed.php
+Topic: Funny|Penny Arcade|https://www.penny-arcade.com/feed
+Topic: Funny|PostSecret|https://postsecret.com/feed/?alt=rss
+Topic: Funny|Saturday Morning Breakfast Cereal|https://www.smbc-comics.com/comic/rss
+Topic: Funny|The Bloggess|https://thebloggess.com/feed/
+Topic: Funny|The Daily WTF|http://syndication.thedailywtf.com/TheDailyWtf
+Topic: Funny|The Oatmeal - Comics by Matthew Inman|http://feeds.feedburner.com/oatmealfeed
+Topic: Funny|The Onion|https://www.theonion.com/rss
+Topic: Funny|xkcd.com|https://xkcd.com/rss.xml
+Topic: Gaming|Escapist Magazine|https://www.escapistmagazine.com/v2/feed/
+Topic: Gaming|Eurogamer.net|https://www.eurogamer.net/?format=rss
+Topic: Gaming|Gamasutra News|http://feeds.feedburner.com/GamasutraNews
+Topic: Gaming|GameSpot - All Content|https://www.gamespot.com/feeds/mashup/
+Topic: Gaming|IGN All|http://feeds.ign.com/ign/all
+Topic: Gaming|Indie Games Plus|https://indiegamesplus.com/feed
+Topic: Gaming|Kotaku|https://kotaku.com/rss
+Topic: Gaming|Makeup and Beauty Blog - Makeup Reviews, Swatches and How-To Makeup|https://www.makeupandbeautyblog.com/feed/
+Topic: Gaming|PlayStation.Blog|http://feeds.feedburner.com/psblog
+Topic: Gaming|Polygon -  All|https://www.polygon.com/rss/index.xml
+Topic: Gaming|Rock, Paper, Shotgun|http://feeds.feedburner.com/RockPaperShotgun
+Topic: Gaming|Steam RSS News Feed|https://store.steampowered.com/feeds/news.xml
+Topic: Gaming|The Ancient Gaming Noob|http://feeds.feedburner.com/TheAncientGamingNoob
+Topic: Gaming|TouchArcade - iPhone, iPad, Android Games Forum|https://toucharcade.com/community/forums/-/index.rss
+Topic: Gaming|Xbox|https://majornelson.com/feed/
+Topic: Gaming|r/gaming|https://www.reddit.com/r/gaming.rss
+Topic: History|30 For 30 Podcasts|https://feeds.megaphone.fm/ESP5765452710
+Topic: History|Blog Feed|https://americanhistory.si.edu/blog/feed
+Topic: History|Dan Carlin|https://feeds.feedburner.com/dancarlin/history?format=xml
+Topic: History|History in 28-minutes|https://www.historyisnowmagazine.com/blog?format=RSS
+Topic: History|HistoryNet|http://www.historynet.com/feed
+Topic: History|Lore|https://feeds.megaphone.fm/lore
+Topic: History|Revisionist History|https://feeds.megaphone.fm/revisionisthistory
+Topic: History|The History Reader|https://www.thehistoryreader.com/feed/
+Topic: History|Throughline|https://feeds.npr.org/510333/podcast.xml
+Topic: History|You Must Remember This|https://feeds.megaphone.fm/YMRT7068253588
+Topic: Interior design|Apartment Therapy- Saving the world, one room at a time|https://www.apartmenttherapy.com/design.rss
+Topic: Interior design|Better Living Through Design|http://www.betterlivingthroughdesign.com/feed/
+Topic: Interior design|Core77|http://feeds.feedburner.com/core77/blog
+Topic: Interior design|Design MilkInterior Design – Design Milk|https://design-milk.com/category/interior-design/feed/
+Topic: Interior design|Fubiz Media|http://feeds.feedburner.com/fubiz
+Topic: Interior design|Ideal Home|https://www.idealhome.co.uk/feed
+Topic: Interior design|In My Own Style|https://inmyownstyle.com/feed
+Topic: Interior design|Inhabitat - Green Design, Innovation, Architecture, Green Building|https://inhabitat.com/design/feed/
+Topic: Interior design|Interior Design (Interior Architecture)|https://www.reddit.com/r/InteriorDesign/.rss
+Topic: Interior design|Interior Design Ideas|http://www.home-designing.com/feed
+Topic: Interior design|Interior Design Latest|https://www.interiordesign.net/rss/
+Topic: Interior design|Interiors – Dezeen|https://www.dezeen.com/interiors/feed/
+Topic: Interior design|Liz Marie Blog|https://www.lizmarieblog.com/feed/
+Topic: Interior design|The Design Files - Australia|https://thedesignfiles.net/feed/
+Topic: Interior design|The Inspired Room|https://theinspiredroom.net/feed/
+Topic: Interior design|Thrifty Decor Chick|http://feeds.feedburner.com/blogspot/ZBcZ
+Topic: Interior design|Trendir|https://www.trendir.com/feed/
+Topic: Interior design|Yanko Design|http://feeds.feedburner.com/yankodesign
+Topic: Interior design|Yatzer RSS Feed|https://www.yatzer.com/rss.xml
+Topic: Interior design|Young House Love|https://www.younghouselove.com/feed/
+Topic: Interior design|decoist|https://www.decoist.com/feed/
+Topic: Interior design|design – designboom - architecture & design magazine|https://www.designboom.com/design/feed
+Topic: Interior design|sfgirlbybay|https://www.sfgirlbybay.com/feed/
+Topic: Movies|/Film|https://feeds2.feedburner.com/slashfilm
+Topic: Movies|Ain|https://www.aintitcool.com/node/feed/
+Topic: Movies|ComingSoon.net|https://www.comingsoon.net/feed
+Topic: Movies|Deadline|https://deadline.com/feed/
+Topic: Movies|Film School Rejects|https://filmschoolrejects.com/feed/
+Topic: Movies|FirstShowing.net|https://www.firstshowing.net/feed/
+Topic: Movies|IndieWire|https://www.indiewire.com/feed
+Topic: Movies|Movie News and Discussion|https://reddit.com/r/movies/.rss
+Topic: Movies|Movies|https://www.bleedingcool.com/movies/feed/
+Topic: Movies|The A.V. Club|https://film.avclub.com/rss
+Topic: Movies|Variety|https://variety.com/feed/
+Topic: Music|Billboard|https://www.billboard.com/articles/rss.xml
+Topic: Music|Consequence|http://consequenceofsound.net/feed
+Topic: Music|EDM.com - The Latest Electronic Dance Music News, Reviews & Artists|https://edm.com/.rss/full/
+Topic: Music|Metal Injection|http://feeds.feedburner.com/metalinjection
+Topic: Music|Music Business Worldwide|https://www.musicbusinessworldwide.com/feed/
+Topic: Music|RSS: News|http://pitchfork.com/rss/news
+Topic: Music|Song Exploder|http://songexploder.net/feed
+Topic: Music|Your EDM|https://www.youredm.com/feed
+Topic: News|BBC News - World|http://feeds.bbci.co.uk/news/world/rss.xml
+Topic: News|CNN.com - RSS Channel - World|http://rss.cnn.com/rss/edition_world.rss
+Topic: News|International: Top News And Analysis|https://www.cnbc.com/id/100727362/device/rss/rss.html
+Topic: News|NDTV News - World-news|http://feeds.feedburner.com/ndtvnews-world-news
+Topic: News|Top stories - Google News|https://news.google.com/rss
+Topic: News|World|http://feeds.washingtonpost.com/rss/world
+Topic: News|World News|https://www.reddit.com/r/worldnews/.rss
+Topic: News|World News Headlines, Latest International News, World Breaking News - Times of India|https://timesofindia.indiatimes.com/rssfeeds/296589292.cms
+Topic: News|World news - The Guardian|https://www.theguardian.com/world/rss
+Topic: News|Yahoo News - Latest News & Headlines|https://www.yahoo.com/news/rss
+Topic: Personal finance|Afford Anything|https://affordanything.com/feed/
+Topic: Personal finance|Blog – Student Loan Hero|https://studentloanhero.com/blog/feed
+Topic: Personal finance|Budgets Are Sexy|https://feeds2.feedburner.com/budgetsaresexy
+Topic: Personal finance|Financial Samurai|https://www.financialsamurai.com/feed/
+Topic: Personal finance|Frugalwoods|https://feeds.feedburner.com/Frugalwoods
+Topic: Personal finance|Get Rich Slowly|https://www.getrichslowly.org/feed/
+Topic: Personal finance|Good Financial Cents®|https://www.goodfinancialcents.com/feed/
+Topic: Personal finance|I Will Teach You To Be Rich|https://www.iwillteachyoutoberich.com/feed/
+Topic: Personal finance|Learn To Trade The Market|https://www.learntotradethemarket.com/feed
+Topic: Personal finance|Making Sense Of Cents|https://www.makingsenseofcents.com/feed
+Topic: Personal finance|Millennial Money|https://millennialmoney.com/feed/
+Topic: Personal finance|MintLife Blog|https://blog.mint.com/feed/
+Topic: Personal finance|Money Crashers|https://www.moneycrashers.com/feed/
+Topic: Personal finance|Money Saving Mom®|https://moneysavingmom.com/feed/
+Topic: Personal finance|Money Under 30|https://www.moneyunder30.com/feed
+Topic: Personal finance|MoneyNing|http://feeds.feedburner.com/MoneyNing
+Topic: Personal finance|MyWifeQuitHerJob.com|https://mywifequitherjob.com/feed/
+Topic: Personal finance|Nerd|http://feeds.feedblitz.com/kitcesnerdseyeview&x=1
+Topic: Personal finance|NerdWallet|https://www.nerdwallet.com/blog/feed/
+Topic: Personal finance|Oblivious Investor|https://obliviousinvestor.com/feed/
+Topic: Personal finance|Personal Finance|https://reddit.com/r/personalfinance/.rss
+Topic: Personal finance|SavingAdvice.com Blog|https://www.savingadvice.com/feed/
+Topic: Personal finance|Side Hustle Nation|https://www.sidehustlenation.com/feed
+Topic: Personal finance|The College Investor|https://thecollegeinvestor.com/feed/
+Topic: Personal finance|The Dough Roller|https://www.doughroller.net/feed/
+Topic: Personal finance|The Penny Hoarder|https://www.thepennyhoarder.com/feed/
+Topic: Personal finance|Well Kept Wallet|https://wellkeptwallet.com/feed/
+Topic: Personal finance|Wise Bread|http://feeds.killeraces.com/wisebread
+Topic: Photography|500px|https://iso.500px.com/feed/
+Topic: Photography|500px:|https://500px.com/editors.rss
+Topic: Photography|Big Picture|https://www.bostonglobe.com/rss/bigpicture
+Topic: Photography|Canon Rumors – Your best source for Canon rumors, leaks and gossip|https://www.canonrumors.com/feed/
+Topic: Photography|Digital Photography School|https://feeds.feedburner.com/DigitalPhotographySchool
+Topic: Photography|Light Stalking|https://www.lightstalking.com/feed/
+Topic: Photography|Lightroom Killer Tips|https://lightroomkillertips.com/feed/
+Topic: Photography|One Big Photo|http://feeds.feedburner.com/OneBigPhoto
+Topic: Photography|PetaPixel|https://petapixel.com/feed/
+Topic: Photography|Strobist|http://feeds.feedburner.com/blogspot/WOBq
+Topic: Photography|Stuck in Customs|https://stuckincustoms.com/feed/
+Topic: Photography|The Sartorialist|https://feeds.feedburner.com/TheSartorialist
+Topic: Programming|Better Programming - Medium|https://medium.com/feed/better-programming
+Topic: Programming|Code as Craft|https://codeascraft.com/feed/atom/
+Topic: Programming|CodeNewbie|http://feeds.codenewbie.org/cnpodcast.xml
+Topic: Programming|Coding Horror|https://feeds.feedburner.com/codinghorror
+Topic: Programming|Complete Developer Podcast|https://completedeveloperpodcast.com/feed/podcast/
+Topic: Programming|Dan Abramov|https://overreacted.io/rss.xml
+Topic: Programming|Developer Tea|https://feeds.simplecast.com/dLRotFGk
+Topic: Programming|English (US)|https://blog.twitter.com/engineering/en_us/blog.rss
+Topic: Programming|FLOSS Weekly (Audio)|https://feeds.twit.tv/floss.xml
+Topic: Programming|Facebook Engineering|https://engineering.fb.com/feed/
+Topic: Programming|GitLab|https://about.gitlab.com/atom.xml
+Topic: Programming|Google Developers Blog|http://feeds.feedburner.com/GDBcode
+Topic: Programming|Google TechTalks|https://www.youtube.com/feeds/videos.xml?user=GoogleTechTalks
+Topic: Programming|HackerNoon.com - Medium|https://medium.com/feed/hackernoon
+Topic: Programming|Hanselminutes with Scott Hanselman|https://feeds.simplecast.com/gvtxUiIf
+Topic: Programming|InfoQ|https://feed.infoq.com
+Topic: Programming|Instagram Engineering - Medium|https://instagram-engineering.com/feed/
+Topic: Programming|Java, SQL and jOOQ.|https://blog.jooq.org/feed
+Topic: Programming|JetBrains Blog|https://blog.jetbrains.com/feed
+Topic: Programming|Joel on Software|https://www.joelonsoftware.com/feed/
+Topic: Programming|LinkedIn Engineering|https://engineering.linkedin.com/blog.rss.html
+Topic: Programming|Martin Fowler|https://martinfowler.com/feed.atom
+Topic: Programming|Netflix TechBlog - Medium|https://netflixtechblog.com/feed
+Topic: Programming|Overflow - Buffer Resources|https://buffer.com/resources/overflow/rss/
+Topic: Programming|Podcast – Software Engineering Daily|https://softwareengineeringdaily.com/category/podcast/feed
+Topic: Programming|Prezi Engineering - Medium|https://engineering.prezi.com/feed
+Topic: Programming|Programming Throwdown|http://feeds.feedburner.com/ProgrammingThrowdown
+Topic: Programming|Programming – The Crazy Programmer|https://www.thecrazyprogrammer.com/category/programming/feed
+Topic: Programming|Robert Heaton - Blog|https://robertheaton.com/feed.xml
+Topic: Programming|Scott Hanselman|http://feeds.hanselman.com/ScottHanselman
+Topic: Programming|Scripting News|http://scripting.com/rss.xml
+Topic: Programming|Slack Engineering|https://slack.engineering/feed
+Topic: Programming|Software Defined Talk|https://feeds.fireside.fm/sdt/rss
+Topic: Programming|Software Engineering Radio - The Podcast for Professional Software Developers|http://feeds.feedburner.com/se-radio
+Topic: Programming|SoundCloud Backstage Blog|https://developers.soundcloud.com/blog/blog.rss
+Topic: Programming|Spotify Engineering|https://labs.spotify.com/feed/
+Topic: Programming|Stack Abuse|https://stackabuse.com/rss/
+Topic: Programming|Stack Overflow Blog|https://stackoverflow.blog/feed/
+Topic: Programming|The 6 Figure Developer|http://6figuredev.com/feed/rss/
+Topic: Programming|The Airbnb Tech Blog - Medium|https://medium.com/feed/airbnb-engineering
+Topic: Programming|The Cynical Developer|https://cynicaldeveloper.com/feed/podcast
+Topic: Programming|The GitHub Blog|https://github.blog/feed/
+Topic: Programming|The PIT Show: Reflections and Interviews in the Tech World|https://feeds.transistor.fm/productivity-in-tech-podcast
+Topic: Programming|The Rabbit Hole: The Definitive Developer|http://therabbithole.libsyn.com/rss
+Topic: Programming|The Stack Overflow Podcast|https://feeds.simplecast.com/XA_851k3
+Topic: Programming|The Standup|https://feeds.fireside.fm/standup/rss
+Topic: Programming|The Women in Tech Show: A Technical Podcast|https://thewomenintechshow.com/category/podcast/feed/
+Topic: Programming|programming|https://www.reddit.com/r/programming/.rss
+Topic: Science|60-Second Science|http://rss.sciam.com/sciam/60secsciencepodcast
+Topic: Science|BBC News - Science & Environment|http://feeds.bbci.co.uk/news/science_and_environment/rss.xml
+Topic: Science|Discovery|https://podcasts.files.bbci.co.uk/p002w557.rss
+Topic: Science|FlowingData|https://flowingdata.com/feed
+Topic: Science|Gizmodo|https://gizmodo.com/tag/science/rss
+Topic: Science|Hidden Brain|https://feeds.npr.org/510308/podcast.xml
+Topic: Science|Invisibilia|https://feeds.npr.org/510307/podcast.xml
+Topic: Science|Latest Science News -- ScienceDaily|https://www.sciencedaily.com/rss/all.xml
+Topic: Science|Nature|https://www.nature.com/nature.rss
+Topic: Science|Phys.org - latest science and technology news stories|https://phys.org/rss-feed/
+Topic: Science|Probably Science|https://probablyscience.libsyn.com/rss
+Topic: Science|Radiolab|http://feeds.wnyc.org/radiolab
+Topic: Science|Reddit Science|https://reddit.com/r/science/.rss
+Topic: Science|Sawbones: A Marital Tour of Misguided Medicine|https://feeds.simplecast.com/y1LF_sn2
+Topic: Science|Science Latest|https://www.wired.com/feed/category/science/latest/rss
+Topic: Science|Science Vs|http://feeds.gimletmedia.com/ScienceVs
+Topic: Science|Science-Based Medicine|https://sciencebasedmedicine.org/feed/
+Topic: Science|Scientific American Content: Global|http://rss.sciam.com/ScientificAmerican-Global
+Topic: Science|Shirtloads of Science|https://shirtloadsofscience.libsyn.com/rss
+Topic: Science|TED Talks Daily (SD video)|https://pa.tedcdn.com/feeds/talks.rss
+Topic: Science|The Infinite Monkey Cage|https://podcasts.files.bbci.co.uk/b00snr0w.rss
+Topic: Science|This Week in Science – The Kickass Science Podcast|http://www.twis.org/feed/
+Topic: Space|/r/space: news, articles and discussion|https://www.reddit.com/r/space/.rss?format=xml
+Topic: Space|NASA Breaking News|https://www.nasa.gov/rss/dyn/breaking_news.rss
+Topic: Space|New Scientist - Space|https://www.newscientist.com/subject/space/feed/
+Topic: Space|Sky & Telescope|https://www.skyandtelescope.com/feed/
+Topic: Space|Space - The Guardian|https://www.theguardian.com/science/space/rss
+Topic: Space|Space.com|https://www.space.com/feeds/all
+Topic: Space|SpaceX|https://www.youtube.com/feeds/videos.xml?user=spacexchannel
+Topic: Sports|BBC Sport - Sport|http://feeds.bbci.co.uk/sport/rss.xml
+Topic: Sports|Reddit Sports|https://www.reddit.com/r/sports.rss
+Topic: Sports|Sports News - Latest Sports and Football News - Sky News|http://feeds.skynews.com/feeds/rss/sports.xml
+Topic: Sports|Sportskeeda|https://www.sportskeeda.com/feed
+Topic: Sports|Yahoo! Sports - News, Scores, Standings, Rumors, Fantasy Games|https://sports.yahoo.com/rss/
+Topic: Sports|www.espn.com - TOP|https://www.espn.com/espn/rss/news
+Topic: Startups|AVC|https://avc.com/feed/
+Topic: Startups|Both Sides of the Table - Medium|https://bothsidesofthetable.com/feed
+Topic: Startups|Entrepreneur|http://feeds.feedburner.com/entrepreneur/latest
+Topic: Startups|Feld Thoughts|https://feld.com/feed
+Topic: Startups|Forbes - Entrepreneurs|https://www.forbes.com/entrepreneurs/feed/
+Topic: Startups|GaryVee|https://www.youtube.com/feeds/videos.xml?user=GaryVaynerchuk
+Topic: Startups|Hacker News: Front Page|https://hnrss.org/frontpage
+Topic: Startups|Inc.com|https://www.inc.com/rss/
+Topic: Startups|Inside Intercom|https://www.intercom.com/blog/feed
+Topic: Startups|Marie Forleo|https://www.youtube.com/feeds/videos.xml?user=marieforleo
+Topic: Startups|Paul Graham: Essays|http://www.aaronsw.com/2002/feeds/pgessays.rss
+Topic: Startups|Product Hunt — The best new products, every day|https://www.producthunt.com/feed
+Topic: Startups|Quick Sprout|https://www.quicksprout.com/rss
+Topic: Startups|Small Business Trends|https://feeds2.feedburner.com/SmallBusinessTrends
+Topic: Startups|Smart Passive Income|http://feeds.feedburner.com/smartpassiveincome
+Topic: Startups|Springwise|https://www.springwise.com/feed
+Topic: Startups|Steve Blank|https://steveblank.com/feed/
+Topic: Startups|The Startup Junkies Podcast|https://startupjunkie.libsyn.com/rss
+Topic: Startups|The Tim Ferriss Show|https://rss.art19.com/tim-ferriss-show
+Topic: Startups|This Week in Startups - Video|http://feeds.feedburner.com/twistvid
+Topic: Startups|VentureBeat|https://feeds.feedburner.com/venturebeat/SZYF
+Topic: Startups|blog – Feld Thoughts|https://feld.com/archives/tag/blog/feed
+Topic: Tech|Accidental Tech Podcast|https://atp.fm/rss
+Topic: Tech|Analog(ue)|https://www.relay.fm/analogue/feed
+Topic: Tech|Ars Technica|http://feeds.arstechnica.com/arstechnica/index
+Topic: Tech|CNET|https://www.youtube.com/feeds/videos.xml?user=CNETTV
+Topic: Tech|CNET News|https://www.cnet.com/rss/news/
+Topic: Tech|Clockwise|https://www.relay.fm/clockwise/feed
+Topic: Tech|Gizmodo|https://gizmodo.com/rss
+Topic: Tech|Hacker News|https://news.ycombinator.com/rss
+Topic: Tech|Lifehacker|https://lifehacker.com/rss
+Topic: Tech|Linus Tech Tips|https://www.youtube.com/feeds/videos.xml?user=LinusTechTips
+Topic: Tech|Marques Brownlee|https://www.youtube.com/feeds/videos.xml?user=marquesbrownlee
+Topic: Tech|Mashable|http://feeds.mashable.com/Mashable
+Topic: Tech|ReadWrite|https://readwrite.com/feed/
+Topic: Tech|Reply All|https://feeds.megaphone.fm/replyall
+Topic: Tech|Rocket|https://www.relay.fm/rocket/feed
+Topic: Tech|Slashdot|http://rss.slashdot.org/Slashdot/slashdotMain
+Topic: Tech|Stratechery by Ben Thompson|http://stratechery.com/feed/
+Topic: Tech|TechCrunch|http://feeds.feedburner.com/TechCrunch
+Topic: Tech|The Keyword|https://www.blog.google/rss/
+Topic: Tech|The Next Web|https://thenextweb.com/feed/
+Topic: Tech|The Verge|https://www.youtube.com/feeds/videos.xml?user=TheVerge
+Topic: Tech|The Verge -  All Posts|https://www.theverge.com/rss/index.xml
+Topic: Tech|The Vergecast|https://feeds.megaphone.fm/vergecast
+Topic: Tech|This Week in Tech (Audio)|https://feeds.twit.tv/twit.xml
+Topic: Tech|Unbox Therapy|https://www.youtube.com/feeds/videos.xml?user=unboxtherapy
+Topic: Tech|https://www.engadget.com/|https://www.engadget.com/rss.xml
+Topic: Television|TV|https://www.bleedingcool.com/tv/feed/
+Topic: Television|TV Fanatic|https://www.tvfanatic.com/rss.xml
+Topic: Television|TVLine|https://tvline.com/feed/
+Topic: Television|Television News and Discussion|https://reddit.com/r/television/.rss
+Topic: Television|The A.V. Club|https://tv.avclub.com/rss
+Topic: Television|the TV addict|http://feeds.feedburner.com/thetvaddict/AXob
+Topic: Tennis|BBC Sport - Tennis|http://feeds.bbci.co.uk/sport/tennis/rss.xml
+Topic: Tennis|Essential Tennis Podcast - Instruction, Lessons, Tips|https://feed.podbean.com/essentialtennis/feed.xml
+Topic: Tennis|Grand Slam Fantasy Tennis|http://www.grandslamfantasytennis.com/feed/?x=1
+Topic: Tennis|Tennis - ATP World Tour|https://www.atptour.com/en/media/rss-feed/xml-feed
+Topic: Tennis|Tennis News & Discussion|https://www.reddit.com/r/tennis/.rss
+Topic: Tennis|peRFect Tennis|https://www.perfect-tennis.com/feed/
+Topic: Tennis|www.espn.com - TENNIS|https://www.espn.com/espn/rss/tennis/news
+Topic: Travel|Atlas Obscura - Latest Articles and Places|https://www.atlasobscura.com/feeds/latest
+Topic: Travel|Live Life Travel|https://www.livelifetravel.world/feed/
+Topic: Travel|Lonely Planet Travel News|https://www.lonelyplanet.com/news/feed/atom/
+Topic: Travel|Nomadic Matt|https://www.nomadicmatt.com/travel-blog/feed/
+Topic: Travel|Travel - The Guardian|https://www.theguardian.com/uk/travel/rss
+Topic: UI - UX|Articles on Smashing Magazine — For Web Designers And Developers|https://www.smashingmagazine.com/feed
+Topic: UI - UX|Boxes and Arrows|http://boxesandarrows.com/rss/
+Topic: UI - UX|Designer News Feed|https://www.designernews.co/?format=rss
+Topic: UI - UX|Inside Design|https://www.invisionapp.com/inside-design/feed
+Topic: UI - UX|JUST™ Creative|https://feeds.feedburner.com/JustCreativeDesignBlog
+Topic: UI - UX|NN/g latest articles and announcements|https://www.nngroup.com/feed/rss/
+Topic: UI - UX|UX Blog – UX Studio|https://uxstudioteam.com/ux-blog/feed/
+Topic: UI - UX|UX Collective - Medium|https://uxdesign.cc/feed
+Topic: UI - UX|UX Movement|https://uxmovement.com/feed/
+Topic: UI - UX|Usability Geek|https://usabilitygeek.com/feed/
+Topic: UI - UX|User Experience|https://www.reddit.com/r/userexperience/.rss
+Topic: Web Development|A List Apart: The Full Feed|https://alistapart.com/main/feed/
+Topic: Web Development|CSS-Tricks|https://css-tricks.com/feed/
+Topic: Web Development|Code Wall|https://www.codewall.co.uk/feed/
+Topic: Web Development|David Walsh Blog|https://davidwalsh.name/feed
+Topic: Web Development|Mozilla Hacks – the Web developer blog|https://hacks.mozilla.org/feed/
+Topic: Web Development|Sink In - Tech and Travel|https://gosink.in/rss/
+Topic: Web Development|Updates|https://developers.google.com/web/updates/rss.xml
+Topic: iOS Development|ALL SHOWS - Devchat.tv|https://feeds.feedwrench.com/all-shows-devchattv.rss
+Topic: iOS Development|Alberto De Bortoli|https://albertodebortoli.com/rss/
+Topic: iOS Development|Augmented Code|https://augmentedcode.io/feed/
+Topic: iOS Development|Benoit Pasquier - Swift, Data and more|https://benoitpasquier.com/index.xml
+Topic: iOS Development|Fabisevi.ch|https://www.fabisevi.ch/feed.xml
+Topic: iOS Development|Mobile A11y|https://mobilea11y.com/index.xml
+Topic: iOS Development|More Than Just Code podcast - iOS and Swift development, news and advice|https://feeds.fireside.fm/mtjc/rss
+Topic: iOS Development|News - Apple Developer|https://developer.apple.com/news/rss/news.rss
+Topic: iOS Development|Ole Begemann|https://oleb.net/blog/atom.xml
+Topic: iOS Development|Pavel Zak’s dev blog|https://nerdyak.tech/feed.xml
+Topic: iOS Development|Swift by Sundell|https://www.swiftbysundell.com/feed.rss
+Topic: iOS Development|Swift by Sundell|https://swiftbysundell.com/feed.rss
+Topic: iOS Development|SwiftRocks|https://swiftrocks.com/rss.xml
+Topic: iOS Development|The Atomic Birdhouse|https://atomicbird.com/index.xml
+Topic: iOS Development|Under the Radar|https://www.relay.fm/radar/feed
+Topic: iOS Development|Use Your Loaf - iOS Development News & Tips|https://useyourloaf.com/blog/rss.xml
+Topic: iOS Development|inessential.com|https://inessential.com/xml/rss.xml
+Topic: iOS Development|tyler.io|https://tyler.io/feed/

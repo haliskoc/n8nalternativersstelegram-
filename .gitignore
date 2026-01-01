@@ -53,3 +53,15 @@ Thumbs.db
 news_bot.db
 bot.log
 data/
+
+# Local/Runtime files
+.env
+*.db
+*.xlsx
+feeds.json
+selected_lines.txt
+*.tmp
+aweomsrss/
+__pycache__/
+*.opml
+

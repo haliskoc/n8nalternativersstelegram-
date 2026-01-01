@@ -48,6 +48,20 @@ chmod +x setup.sh
 sudo ./setup.sh
 ```
 
+The script will automatically detect your OS (Linux, macOS, Windows) and guide you through the installation.
+Script işletim sisteminizi (Linux, macOS, Windows) otomatik olarak algılar ve kurulum boyunca sizi yönlendirir.
+
+### 3. Update / Güncelleme
+
+To update the bot to the latest version, simply run:
+Botu en son sürüme güncellemek için şu komutu çalıştırın:
+
+```bash
+chmod +x update.sh
+sudo ./update.sh
+```
+
+
 ### 3. Follow the Script / Scripti Takip Edin
 The script will ask you for your language (English/Turkish) and your keys. Just enter them and press Enter. That's it!
 Script size dilinizi (İngilizce/Türkçe) ve anahtarlarınızı soracak. Sadece girin ve Enter'a basın. Bu kadar!
