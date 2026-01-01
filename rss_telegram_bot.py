@@ -18,6 +18,7 @@ import openpyxl
 from openpyxl import Workbook
 import schedule
 import threading
+from bs4 import BeautifulSoup
 
 import json
 
@@ -448,28 +449,43 @@ class RSSNewsBot:
 
     def format_news_message(self, news: Dict) -> str:
         """Haber mesajını formatla"""
-        # HTML karakterlerini temizle ve escape et
-        title = news['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-        summary = news['summary'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        title = news.get('title', 'Başlık Yok')
+        summary_raw = news.get('summary', '')
         source = news.get('source', 'Bilinmeyen Kaynak')
+        link = news.get('link', '#')
         
-        # Özeti kısalt (Telegram limiti için)
-        if len(summary) > 400:
-            summary = summary[:400] + "..."
+        # HTML temizliği (BeautifulSoup ile)
+        try:
+            soup = BeautifulSoup(summary_raw, "html.parser")
+            summary = soup.get_text(separator=" ", strip=True)
+        except Exception as e:
+            logger.warning(f"HTML temizleme hatası: {e}")
+            summary = summary_raw
+
+        # HTML karakterlerini escape et (Telegram HTML parse mode için)
+        def escape_html(text):
+            return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+        title = escape_html(title)
+        summary = escape_html(summary)
+        source = escape_html(source)
+
+        # Özeti kısalt
+        if len(summary) > 350:
+            summary = summary[:350] + "..."
         
-        # Daha modern ve temiz bir görünüm
+        # Yeni Tasarım
         message = (
-            f"🚀 <b>{title}</b>\n\n"
-            f"🏢 <b>Kaynak:</b> {source}\n"
-            f"──────────────────\n\n"
+            f"📰 <b>{title}</b>\n\n"
+            f"ℹ️ <i>{source}</i>\n"
+            f"─────────────────────\n"
             f"{summary}\n\n"
-            f"👉 <a href='{news['link']}'>Haberin devamını oku</a>"
+            f"🔗 <a href='{link}'>Haberi Kaynağında Oku</a>"
         )
         
         # AI Analizi varsa ekle
         if news.get('analysis'):
-            message += f"\n\n🤖 <b>AI ANALİZİ</b>\n"
-            message += f"──────────────────\n"
+            message += f"\n\n🧠 <b>AI Analizi</b>\n"
             message += f"{news['analysis']}"
         
         return message
