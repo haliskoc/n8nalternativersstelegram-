@@ -1,202 +1,97 @@
-# 🤖 Multi-Source RSS Telegram Bot
+# 🤖 RSS Telegram Bot
 
-A Telegram bot that automatically tracks RSS feeds from 30+ websites including technology, science, and economics news.
+**Your Personal News Assistant / Kişisel Haber Asistanınız**
 
-## ✨ Features
+This bot automatically tracks news from 30+ websites (Technology, Science, Economics) and sends them to your Telegram channel. It can also analyze news using AI!
 
-- **30+ Websites**: Technology, science, economics, and research news
-- **5-Minute Check Interval**: Always up-to-date news
-- **Daily AI Summary**: Gemini AI generates daily summaries at 18:35
-- **Auto Excel Storage**: Daily news files with automatic cleanup
-- **Smart File Management**: Old files automatically deleted after summary
-- **Duplicate Prevention**: Won't send the same news twice
-- **Source Display**: Shows which site each news comes from
-- **Low Resource Usage**: Only 30 MB RAM, 3% CPU
+Bu bot, 30'dan fazla web sitesinden (Teknoloji, Bilim, Ekonomi) haberleri otomatik olarak takip eder ve Telegram kanalınıza gönderir. Ayrıca yapay zeka kullanarak haberleri analiz edebilir!
 
-## 📰 Tracked Websites
+---
 
-### 💻 Technology
-- TechCrunch, WIRED, TechRepublic
-- Computer Weekly, Ars Technica
-- The Verge, Engadget
-- Webtekno, Technopat, ShiftDelete
+## ✨ Features / Özellikler
 
-### 🔬 Science & Research
-- Scientific American, Science (AAAS)
-- ScienceDaily, MIT News
-- NASA, The Conversation
-- Futurism
+- �� **30+ Sources:** TechCrunch, WIRED, NASA, Science, and more.
+- ⚡ **Instant Updates:** Checks for news every 5 minutes.
+- 🤖 **AI Analysis:** Detailed insights and summaries for each news item (Optional).
+- 📊 **Daily Summary:** A neat summary of the day's news at 18:35.
+- 🇹🇷 **Turkish & English:** Supports both international and local sources.
 
-### 💰 Economics & Finance
-- Trading Economics, MarketWatch
-- Federal Reserve, CEPR
-- BNP Paribas Economic Research
+---
 
-### 🇹🇷 Turkish Technology
-- Donanım Günlüğü, PC Hocası
-- Teknoblog, Megabayt, Sözcü
+## 🚀 Super Easy Setup / Çok Kolay Kurulum
 
-## 🚀 Quick Setup
+You don't need to know any code! Just follow these 3 steps.
+Kod bilmenize gerek yok! Sadece bu 3 adımı takip edin.
 
-### 1. Create Telegram Bot
-1. Talk to [@BotFather](https://t.me/botfather) on Telegram
-2. Type `/newbot`
-3. Choose a bot name (e.g., "Tech News Bot")
-4. Choose a bot username (e.g., "tech_news_bot")
-5. **Copy and save the token**
+### 1. Get Your Keys / Anahtarlarınızı Alın
+Before starting, you need two things from Telegram:
+Başlamadan önce Telegram'dan iki şeye ihtiyacınız var:
 
-### 2. Get Chat ID
-1. Talk to [@userinfobot](https://t.me/userinfobot)
-2. **Copy and save your Chat ID**
+1.  **Bot Token:** Talk to [@BotFather](https://t.me/botfather), create a new bot (`/newbot`), and copy the **API Token**.
+2.  **Chat ID:** Talk to [@userinfobot](https://t.me/userinfobot) and copy your **ID**.
 
-### 3. Get Gemini AI API Key
-1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Create a new API key
-3. **Copy and save the API key**
+*(Optional) For AI features, get a free key from [OpenRouter](https://openrouter.ai/).*
+*(İsteğe bağlı) AI özellikleri için [OpenRouter](https://openrouter.ai/) adresinden ücretsiz bir anahtar alın.*
 
-### 4. Download Project
+### 2. Download & Run / İndir ve Çalıştır
+
+Open your terminal and run these commands:
+Terminalinizi açın ve şu komutları çalıştırın:
+
 ```bash
+# 1. Clone the project / Projeyi indirin
 git clone https://github.com/username/rss-telegram-bot.git
 cd rss-telegram-bot
+
+# 2. Run the setup script / Kurulum scriptini çalıştırın
+chmod +x setup.sh
+./setup.sh
 ```
 
-### 5. Run with Python
-```bash
-# Install dependencies
-pip install -r requirements.txt
+### 3. Follow the Script / Scripti Takip Edin
+The script will ask you for your language (English/Turkish) and your keys. Just enter them and press Enter. That's it!
+Script size dilinizi (İngilizce/Türkçe) ve anahtarlarınızı soracak. Sadece girin ve Enter'a basın. Bu kadar!
 
-# Set environment variables
-export TELEGRAM_TOKEN="your_bot_token_here"
-export CHAT_ID="your_chat_id_here"
-export GEMINI_API_KEY="your_gemini_api_key_here"
+---
 
-# Start the bot
-python3 rss_telegram_bot.py
-```
+<details>
+<summary>🛠️ <b>Advanced / Manual Setup (Click to Expand)</b></summary>
 
-### 6. Run with Docker
-```bash
-# Set environment variables
-export TELEGRAM_TOKEN="your_bot_token_here"
-export CHAT_ID="your_chat_id_here"
-
-# Run with Docker
-docker-compose up -d
-```
-
-## 🔧 Detailed Setup
+If you prefer to set up everything manually or want to know how it works under the hood.
 
 ### Requirements
-- Python 3.8+ or Docker
-- Telegram account
+- Docker & Docker Compose
+- Or Python 3.8+
 
-### Manual Installation
-```bash
-# 1. Clone the project
-git clone https://github.com/username/rss-telegram-bot.git
-cd rss-telegram-bot
+### Manual Docker Setup
+1. Create a `.env` file:
+   ```bash
+   cp env.example .env
+   ```
+2. Edit `.env` and add your keys:
+   ```
+   TELEGRAM_TOKEN=your_token
+   CHAT_ID=your_id
+   OPENROUTER_API_KEY=your_key (optional)
+   ```
+3. Run with Docker Compose:
+   ```bash
+   docker-compose up -d
+   ```
 
-# 2. Create virtual environment (recommended)
-python3 -m venv venv
-source venv/bin/activate  # Linux/Mac
-# or
-venv\Scripts\activate     # Windows
+### Manual Python Setup
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Set environment variables:
+   ```bash
+   export TELEGRAM_TOKEN="your_token"
+   export CHAT_ID="your_id"
+   ```
+3. Run the bot:
+   ```bash
+   python3 rss_telegram_bot.py
+   ```
 
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Set environment variables
-export TELEGRAM_TOKEN="your_bot_token_here"
-export CHAT_ID="your_chat_id_here"
-
-# 5. Start the bot
-python3 rss_telegram_bot.py
-```
-
-### Running on Server
-```bash
-# Run in background
-nohup python3 rss_telegram_bot.py > bot.log 2>&1 &
-
-# Check status
-ps aux | grep python
-
-# View logs
-tail -f bot.log
-```
-
-## 📊 Resource Usage
-- **RAM**: ~30 MB
-- **CPU**: ~3%
-- **Storage**: ~50 MB
-- **Network**: Minimal
-
-## 🛠️ Configuration
-
-### Environment Variables
-- `TELEGRAM_TOKEN`: Telegram bot token
-- `CHAT_ID`: Target chat ID
-- `GEMINI_API_KEY`: Google Gemini AI API key
-
-### Bot Settings
-- Check interval: 5 minutes
-- News age: 24 hours
-- Daily summary: 18:35 (Gemini AI)
-- Excel storage: Daily files with auto-cleanup
-- File management: Auto-delete after summary
-- Maximum summary: 300 characters
-
-## 📁 Project Structure
-
-```
-rss-telegram-bot/
-├── rss_telegram_bot.py    # Main bot code
-├── requirements.txt       # Python dependencies
-├── Dockerfile            # Docker image
-├── docker-compose.yml    # Docker Compose
-├── env.example          # Environment variables example
-├── .gitignore           # Git ignore
-├── LICENSE              # MIT License
-└── README.md            # This file
-```
-
-## 🛠️ Development
-
-### Adding New RSS Feed
-Add new URL to the `rss_urls` list in `rss_telegram_bot.py`.
-
-### Adding Site Name
-Add new site to the `site_names` dictionary in the `get_site_name()` function.
-
-## 📄 License
-
-MIT License - Feel free to use and modify.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Submit a pull request
-
-## 📞 Support
-
-Use GitHub Issues for problems and questions.
-
-## 🔧 Troubleshooting
-
-### Bot Not Sending Messages
-1. Check if bot token is correct
-2. Verify chat ID is correct
-3. Make sure bot is started in the chat
-4. Check logs for errors
-
-### RSS Feed Not Working
-1. Verify RSS URL is correct
-2. Check firewall settings
-3. Review logs for errors
-
-### Container Not Starting
-1. Make sure Docker is running
-2. Check if port 8080 is available
-3. Review logs: `docker-compose logs`
+</details>

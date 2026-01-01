@@ -13,7 +13,7 @@ import os
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 import hashlib
-import google.generativeai as genai
+from openai import OpenAI
 import openpyxl
 from openpyxl import Workbook
 import schedule
@@ -31,15 +31,22 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class RSSNewsBot:
-    def __init__(self, telegram_token: str, chat_id: str, rss_urls: list = None, gemini_api_key: str = None):
+    def __init__(self, telegram_token: str, chat_id: str, rss_urls: list = None, openrouter_api_key: str = None, openrouter_model: str = None):
         self.telegram_token = telegram_token
         self.chat_id = chat_id
-        self.gemini_api_key = gemini_api_key
+        self.openrouter_api_key = openrouter_api_key
+        self.openrouter_model = openrouter_model or "google/gemini-2.0-flash-lite-preview-02-05:free"
         
-        # Gemini AI'yi başlat
-        if self.gemini_api_key:
-            genai.configure(api_key=self.gemini_api_key)
-            self.gemini_model = genai.GenerativeModel('gemini-pro')
+        self.ai_client = None
+        if self.openrouter_api_key:
+            try:
+                self.ai_client = OpenAI(
+                    base_url="https://openrouter.ai/api/v1",
+                    api_key=self.openrouter_api_key,
+                )
+                logger.info(f"AI Client başlatıldı. Model: {self.openrouter_model}")
+            except Exception as e:
+                logger.error(f"AI Client başlatılamadı: {e}")
         
         # Varsayılan RSS feed listesi
         if rss_urls is None:
@@ -336,6 +343,37 @@ class RSSNewsBot:
             logger.error(f"Beklenmeyen hata: {e}")
             return False
     
+    def analyze_news(self, title: str, summary: str, source: str) -> str:
+        """Haberi AI ile analiz et"""
+        if not self.ai_client:
+            return None
+
+        try:
+            system_prompt = """Sen uzman bir teknoloji, bilim ve ekonomi analistisin. 
+            Görevin sana verilen haber başlığını ve özetini analiz ederek Türkçe, detaylı ve içgörü dolu bir yorum yazmak.
+            
+            Lütfen şu yapıyı kullan:
+            1. 🧐 **Analiz:** Haberin ne anlama geldiğini ve önemini kısaca açıkla.
+            2. 💡 **Neden Önemli?:** Bu gelişmenin sektöre veya geleceğe etkileri neler olabilir?
+            3. 🔮 **Gelecek Öngörüsü:** Bu haberin devamında neler beklenebilir?
+            
+            Yanıtın bilgilendirici, profesyonel ama anlaşılır olsun. Emojileri yerinde kullan."""
+
+            user_content = f"Haber Kaynağı: {source}\nBaşlık: {title}\nÖzet: {summary}"
+
+            completion = self.ai_client.chat.completions.create(
+                model=self.openrouter_model,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_content},
+                ]
+            )
+            
+            return completion.choices[0].message.content
+        except Exception as e:
+            logger.error(f"AI Analiz hatası: {e}")
+            return None
+
     def format_news_message(self, news: Dict) -> str:
         """Haber mesajını formatla"""
         # HTML karakterlerini temizle ve escape et
@@ -344,21 +382,23 @@ class RSSNewsBot:
         source = news.get('source', 'Bilinmeyen Kaynak')
         
         # Özeti kısalt (Telegram limiti için)
-        if len(summary) > 300:
-            summary = summary[:300] + "..."
+        if len(summary) > 400:
+            summary = summary[:400] + "..."
         
-        message = f"""<b>YENİ HABER BİLDİRİMİ</b>
-
-📰 <b>Kaynak:</b> {source}
-📝 <b>Başlık:</b> {title}
-
----
-
-📄 <b>Özet:</b> {summary}
-
----
-
-🔗 <a href="{news['link']}">Habere Git (Tıkla)</a>"""
+        # Daha modern ve temiz bir görünüm
+        message = (
+            f"🚀 <b>{title}</b>\n\n"
+            f"🏢 <b>Kaynak:</b> {source}\n"
+            f"──────────────────\n\n"
+            f"{summary}\n\n"
+            f"👉 <a href='{news['link']}'>Haberin devamını oku</a>"
+        )
+        
+        # AI Analizi varsa ekle
+        if news.get('analysis'):
+            message += f"\n\n🤖 <b>AI ANALİZİ</b>\n"
+            message += f"──────────────────\n"
+            message += f"{news['analysis']}"
         
         return message
     
@@ -373,6 +413,13 @@ class RSSNewsBot:
             news_hash = self.get_news_hash(news['title'], news['link'])
             
             if not self.is_news_sent(news_hash):
+                # AI Analizi yap (varsa)
+                if self.ai_client:
+                    logger.info(f"Haber analiz ediliyor: {news['title'][:30]}...")
+                    analysis = self.analyze_news(news['title'], news['summary'], news['source'])
+                    if analysis:
+                        news['analysis'] = analysis
+
                 message = self.format_news_message(news)
                 
                 if self.send_telegram_message(message):
@@ -419,44 +466,56 @@ class RSSNewsBot:
             return {'Technology': [], 'Science': [], 'Economics': [], 'General': []}
     
     def generate_daily_summary_with_gemini(self) -> str:
-        """Gemini AI ile günlük özet oluştur"""
+        """Günlük özet oluştur (AI devre dışı - Telegram HTML formatı)"""
         try:
-            if not self.gemini_api_key:
-                return "Gemini AI API key bulunamadı."
-            
             todays_news = self.get_todays_news_from_excel()
             
             if not any(todays_news.values()):
-                return "Bugün henüz haber bulunamadı."
+                return "📭 <b>Bugün henüz haber bulunamadı.</b>"
             
-            # Gemini'ye gönderilecek prompt
-            prompt = f"""
-            Bugün toplanan haberleri kategorilere göre analiz et ve detaylı bir günlük özet hazırla.
+            # Category emojis and Turkish names
+            category_info = {
+                'Technology': {'emoji': '💻', 'name': 'TEKNOLOJİ'},
+                'Science': {'emoji': '🔬', 'name': 'BİLİM'},
+                'Economics': {'emoji': '💰', 'name': 'EKONOMİ'},
+                'General': {'emoji': '📰', 'name': 'GENEL'}
+            }
             
-            TEKNOLOJİ HABERLERİ:
-            {self.format_news_for_ai(todays_news['Technology'])}
+            total_news = sum(len(news_list) for news_list in todays_news.values())
             
-            BİLİM HABERLERİ:
-            {self.format_news_for_ai(todays_news['Science'])}
+            # HTML formatted summary for Telegram
+            summary = f"<b>� GÜNLÜK HABER ÖZETİ</b>\n"
+            summary += f"<i>{datetime.now().strftime('%d.%m.%Y')} • Toplam {total_news} haber</i>\n"
+            summary += f"━━━━━━━━━━━━━━━━━━━━\n\n"
             
-            EKONOMİ HABERLERİ:
-            {self.format_news_for_ai(todays_news['Economics'])}
+            for category, news_list in todays_news.items():
+                if news_list:
+                    info = category_info.get(category, {'emoji': '📌', 'name': category.upper()})
+                    
+                    # Category header with HTML
+                    summary += f"{info['emoji']} <b>{info['name']}</b>\n"
+                    summary += f"────────────────────\n"
+                    
+                    # Show top news items with HTML formatting
+                    for i, news in enumerate(news_list[:5], 1):
+                        # Escape HTML characters in title
+                        title = news['title'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+                        source = news['source'].replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+                        
+                        summary += f"🔹 <b>{title}</b>\n"
+                        summary += f"   └ <i>{source}</i> • <a href=\"{news['link']}\">Oku →</a>\n\n"
+                    
+                    summary += "\n"
             
-            Lütfen şu formatta özet hazırla:
-            1. Her kategori için ayrı başlık
-            2. Her kategoride en önemli 3-5 haber
-            3. Her haber için kısa analiz
-            4. Genel değerlendirme
-            5. Türkçe olarak yaz
+            # Footer
+            summary += f"━━━━━━━━━━━━━━━━━━━━\n"
+            summary += f"✨ <i>Günü yakaladınız!</i>\n"
+            summary += f"🤖 <b>RSS News Bot</b>"
             
-            Özet maksimum 2000 kelime olsun.
-            """
-            
-            response = self.gemini_model.generate_content(prompt)
-            return response.text
+            return summary
             
         except Exception as e:
-            logger.error(f"Gemini özet oluşturma hatası: {e}")
+            logger.error(f"Özet oluşturma hatası: {e}")
             return f"Özet oluşturulurken hata: {e}"
     
     def format_news_for_ai(self, news_list: List[Dict]) -> str:
@@ -582,7 +641,8 @@ def main():
     # Environment variables'dan konfigürasyon al
     telegram_token = os.getenv('TELEGRAM_TOKEN', 'your_telegram_bot_token_here')
     chat_id = os.getenv('CHAT_ID', 'your_telegram_chat_id_here')
-    gemini_api_key = os.getenv('GEMINI_API_KEY', 'AIzaSyCxDcOcq3_tbhOvoJL1R4IdcdYoRGhbE0w')
+    openrouter_api_key = os.getenv('OPENROUTER_API_KEY', '')
+    openrouter_model = os.getenv('OPENROUTER_MODEL', '')
     
     if not telegram_token or telegram_token == 'your_telegram_bot_token_here':
         logger.error("TELEGRAM_TOKEN environment variable gerekli!")
@@ -590,10 +650,13 @@ def main():
         telegram_token = "test_token_for_local_testing"
     
     # Bot'u başlat (artık tüm RSS feed'leri otomatik yüklenir)
-    bot = RSSNewsBot(telegram_token, chat_id, gemini_api_key=gemini_api_key)
+    bot = RSSNewsBot(telegram_token, chat_id, openrouter_api_key=openrouter_api_key, openrouter_model=openrouter_model)
     
     # Test mesajı gönder
-    test_message = "🤖 RSS News Bot başlatıldı! 30+ site (teknoloji, bilim, ekonomi) haberleri takip ediliyor...\n\n📊 Günlük özet 18:35'te Gemini AI ile gönderilecek!"
+    test_message = "🤖 RSS News Bot başlatıldı! 30+ site (teknoloji, bilim, ekonomi) haberleri takip ediliyor...\n\n📊 Günlük özet 18:35'te gönderilecek!"
+    if openrouter_api_key:
+        test_message += "\n\n✨ AI Analiz Modülü: AKTİF"
+    
     if bot.send_telegram_message(test_message):
         logger.info("Test mesajı gönderildi")
     else:
