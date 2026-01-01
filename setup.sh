@@ -54,10 +54,11 @@ esac
 # Load messages from JSON using Python
 if command -v python3 &> /dev/null; then
     # Create a temporary file to store the variables
-    # This avoids issues with eval and complex escaping in one-liners
+    # Use shlex.quote for safe shell escaping
     python3 -c "
 import json
 import os
+import shlex
 
 try:
     with open('locales.json', 'r', encoding='utf-8') as f:
@@ -68,9 +69,8 @@ try:
     
     with open('lang_vars.tmp', 'w', encoding='utf-8') as f:
         for k, v in msgs.items():
-            # Escape single quotes for bash: ' -> '\''
-            v_escaped = v.replace(\"'\", \"'\\''\")
-            f.write(f\"{k}='{v_escaped}'\\n\")
+            # shlex.quote handles all escaping safely for posix shells
+            f.write(f\"{k}={shlex.quote(v)}\\n\")
             
 except Exception as e:
     print(f\"Error loading language: {e}\")
