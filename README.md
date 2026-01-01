@@ -1,77 +1,68 @@
 # 🤖 RSS Telegram Bot
 
-**Your Personal News Assistant / Kişisel Haber Asistanınız**
+![RSS Telegram Bot Banner](image.png)
+
+**Your Personal News Assistant**
 
 This bot automatically tracks news from 30+ websites (Technology, Science, Economics) and sends them to your Telegram channel. It can also analyze news using AI!
 
-Bu bot, 30'dan fazla web sitesinden (Teknoloji, Bilim, Ekonomi) haberleri otomatik olarak takip eder ve Telegram kanalınıza gönderir. Ayrıca yapay zeka kullanarak haberleri analiz edebilir!
-
 ---
 
-## ✨ Features / Özellikler
+## ✨ Features
 
-- �� **30+ Sources:** TechCrunch, WIRED, NASA, Science, and more.
+- 🌐 **30+ Sources:** TechCrunch, WIRED, NASA, Science, and more.
 - ⚡ **Instant Updates:** Checks for news every 5 minutes.
 - 🤖 **AI Analysis:** Detailed insights and summaries for each news item (Optional).
 - 📊 **Daily Summary:** A neat summary of the day's news at 18:35.
-- 🇹🇷 **Turkish & English:** Supports both international and local sources.
+- 🌍 **Multi-language Support:** Supports both international and local sources.
 
 ---
 
-## 🚀 Super Easy Setup / Çok Kolay Kurulum
+## 🚀 Super Easy Setup
 
 You don't need to know any code! Just follow these 3 steps.
-Kod bilmenize gerek yok! Sadece bu 3 adımı takip edin.
 
-### 1. Get Your Keys / Anahtarlarınızı Alın
+### 1. Get Your Keys
 Before starting, you need two things from Telegram:
-Başlamadan önce Telegram'dan iki şeye ihtiyacınız var:
 
 1.  **Bot Token:** Talk to [@BotFather](https://t.me/botfather), create a new bot (`/newbot`), and copy the **API Token**.
 2.  **Chat ID:** Talk to [@userinfobot](https://t.me/userinfobot) and copy your **ID**.
 
 *(Optional) For AI features, get a free key from [OpenRouter](https://openrouter.ai/).*
-*(İsteğe bağlı) AI özellikleri için [OpenRouter](https://openrouter.ai/) adresinden ücretsiz bir anahtar alın.*
 
-### 2. Download & Run / İndir ve Çalıştır
+### 2. Download & Run
 
 Open your terminal and run these commands:
-Terminalinizi açın ve şu komutları çalıştırın:
 
 ```bash
-# 1. Clone the project / Projeyi indirin
+# 1. Clone the project
 git clone https://github.com/haliskoc/n8nalternativersstelegram-.git
 cd n8nalternativersstelegram-
 
-# 2. Run the setup script / Kurulum scriptini çalıştırın
+# 2. Run the setup script
 chmod +x setup.sh
 sudo ./setup.sh
 ```
 
 The script will automatically detect your OS (Linux, macOS, Windows) and guide you through the installation.
-Script işletim sisteminizi (Linux, macOS, Windows) otomatik olarak algılar ve kurulum boyunca sizi yönlendirir.
 
-### 3. Update / Güncelleme
+### 3. Update
 
 To update the bot to the latest version, simply run:
-Botu en son sürüme güncellemek için şu komutu çalıştırın:
 
 ```bash
 chmod +x update.sh
 sudo ./update.sh
 ```
 
-
-### 3. Follow the Script / Scripti Takip Edin
+### 4. Follow the Script
 The script will ask you for your language (English/Turkish) and your keys. Just enter them and press Enter. That's it!
-Script size dilinizi (İngilizce/Türkçe) ve anahtarlarınızı soracak. Sadece girin ve Enter'a basın. Bu kadar!
 
-### 🗑️ Uninstall / Kaldırma
+### 🗑️ Uninstall
 If you want to remove everything installed by the bot:
-Bot tarafından kurulan her şeyi kaldırmak isterseniz:
 ```bash
-chmod +x cleanup.sh
-sudo ./cleanup.sh
+chmod +x uninstall.sh
+sudo ./uninstall.sh
 ```
 
 ---
