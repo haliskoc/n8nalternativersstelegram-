@@ -52,6 +52,14 @@ chmod +x setup.sh
 The script will ask you for your language (English/Turkish) and your keys. Just enter them and press Enter. That's it!
 Script size dilinizi (İngilizce/Türkçe) ve anahtarlarınızı soracak. Sadece girin ve Enter'a basın. Bu kadar!
 
+### 🗑️ Uninstall / Kaldırma
+If you want to remove everything installed by the bot:
+Bot tarafından kurulan her şeyi kaldırmak isterseniz:
+```bash
+chmod +x cleanup.sh
+./cleanup.sh
+```
+
 ---
 
 <details>
