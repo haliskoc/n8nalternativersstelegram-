@@ -44,27 +44,44 @@ echo "5) Português"
 read -p "Choice/Seçim (1-5): " lang_choice
 
 case "$lang_choice" in
-    2) LANG_CODE="tr" ;;
-    3) LANG_CODE="es" ;;
-    4) LANG_CODE="ru" ;;
-    5) LANG_CODE="pt" ;;
-    *) LANG_CODE="en" ;;
+    2) export LANG_CODE="tr" ;;
+    3) export LANG_CODE="es" ;;
+    4) export LANG_CODE="ru" ;;
+    5) export LANG_CODE="pt" ;;
+    *) export LANG_CODE="en" ;;
 esac
 
 # Load messages from JSON using Python
 if command -v python3 &> /dev/null; then
-    eval $(python3 -c "
+    # Create a temporary file to store the variables
+    # This avoids issues with eval and complex escaping in one-liners
+    python3 -c "
 import json
+import os
+
 try:
     with open('locales.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
-        msgs = data.get('$LANG_CODE', data['en'])['messages']
+        
+    lang_code = os.environ.get('LANG_CODE', 'en')
+    msgs = data.get(lang_code, data['en'])['messages']
+    
+    with open('lang_vars.tmp', 'w', encoding='utf-8') as f:
         for k, v in msgs.items():
+            # Escape single quotes for bash: ' -> '\''
             v_escaped = v.replace(\"'\", \"'\\''\")
-            print(f\"{k}='{v_escaped}'\")
+            f.write(f\"{k}='{v_escaped}'\\n\")
+            
 except Exception as e:
-    print(f\"echo 'Error loading language: {e}'\")
-")
+    print(f\"Error loading language: {e}\")
+"
+    
+    if [ -f lang_vars.tmp ]; then
+        source lang_vars.tmp
+        rm lang_vars.tmp
+    else
+        echo "Error: Could not load language variables."
+    fi
 else
     echo "Python3 not found. Defaulting to English."
     # Fallback defaults
