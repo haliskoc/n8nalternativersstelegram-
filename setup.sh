@@ -34,7 +34,8 @@ if [[ "$lang_choice" == "2" ]]; then
 4. Botunuza bir isim verin (Örn: Haber Botu).
 5. Botunuza bir kullanıcı adı verin (Örn: haber_rss_bot - sonu 'bot' ile bitmeli).
 6. BotFather size bir 'HTTP API Token' verecektir.
-7. O uzun kodu kopyalayın ve aşağıya yapıştırın."
+7. O uzun kodu kopyalayın ve aşağıya yapıştırın.
+(Sadece kodu yapıştırın, tüm mesajı değil!)"
     
     MSG_STEP_CHATID="--- ADIM 2: CHAT ID (KULLANICI ID) ALMA ---
 1. Telegram arama kısmına @userinfobot yazın ve botu başlatın.
@@ -54,6 +55,7 @@ Haberlerin AI tarafından yorumlanmasını istiyorsanız:
     MSG_AI_MODEL_PROMPT="Kullanılacak Model (Varsayılan için Enter'a basın): "
     MSG_ENV_CREATED=".env dosyası başarıyla oluşturuldu."
     MSG_STARTING="[3/4] Docker konteynerleri hazırlanıyor ve başlatılıyor..."
+    MSG_CLEANING="Eski konteynerler temizleniyor..."
     MSG_DONE_HEADER="[4/4] Kurulum Başarıyla Tamamlandı!"
     MSG_DONE_SUCCESS="Botunuz şu an arka planda çalışıyor."
     MSG_LOGS="Çalışmayı canlı izlemek için: "
@@ -80,7 +82,8 @@ else
 4. Give your bot a name (e.g., News Bot).
 5. Give your bot a username (e.g., news_rss_bot - must end with 'bot').
 6. BotFather will give you an 'HTTP API Token'.
-7. Copy that long code and paste it below."
+7. Copy that long code and paste it below.
+(Paste ONLY the code, not the whole message!)"
     
     MSG_STEP_CHATID="--- STEP 2: GETTING YOUR CHAT ID ---
 1. Search for @userinfobot on Telegram and start it.
@@ -100,6 +103,7 @@ If you want AI to comment on the news:
     MSG_AI_MODEL_PROMPT="Model to use (Press Enter for default): "
     MSG_ENV_CREATED=".env file created successfully."
     MSG_STARTING="[3/4] Preparing and starting Docker containers..."
+    MSG_CLEANING="Cleaning up old containers..."
     MSG_DONE_HEADER="[4/4] Setup Completed Successfully!"
     MSG_DONE_SUCCESS="Your bot is now running in the background."
     MSG_LOGS="To watch the bot live: "
@@ -143,11 +147,17 @@ if [ ! -f .env ]; then
     echo -e "${GREEN}${MSG_ENTER_INFO}${NC}"
     
     echo -e "\n${BLUE}${MSG_STEP_TOKEN}${NC}"
-    read -p "Telegram Bot Token: " token
-    while [[ -z "$token" ]]; do
+    read -p "Telegram Bot Token: " raw_token
+    while [[ -z "$raw_token" ]]; do
         echo -e "${RED}${MSG_TOKEN_EMPTY}${NC}"
-        read -p "Telegram Bot Token: " token
+        read -p "Telegram Bot Token: " raw_token
     done
+
+    # Extract token if user pasted the whole message
+    token=$(echo "$raw_token" | grep -oE "[0-9]+:[a-zA-Z0-9_-]+")
+    if [[ -z "$token" ]]; then
+        token="$raw_token"
+    fi
 
     echo -e "\n${BLUE}${MSG_STEP_CHATID}${NC}"
     read -p "Chat ID: " chat_id
@@ -186,6 +196,10 @@ if docker compose version &> /dev/null; then
 else
     DOCKER_COMPOSE_CMD="docker-compose"
 fi
+
+echo -e "${BLUE}${MSG_CLEANING}${NC}"
+# Force remove any container with the same name to avoid conflicts
+docker rm -f rss-telegram-bot 2>/dev/null
 
 $DOCKER_COMPOSE_CMD down 2>/dev/null
 $DOCKER_COMPOSE_CMD up -d --build
