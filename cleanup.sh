@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Check for root privileges
+if [[ $EUID -ne 0 ]]; then
+   echo -e "\033[0;31mBu script sudo (root) yetkisi ile çalıştırılmalıdır.\033[0m"
+   echo -e "\033[0;31mThis script must be run with sudo (root) privileges.\033[0m"
+   echo "Örn: sudo ./cleanup.sh"
+   exit 1
+fi
+
 # Colors
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'

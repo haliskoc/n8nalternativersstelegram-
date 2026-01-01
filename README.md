@@ -45,7 +45,7 @@ cd n8nalternativersstelegram-
 
 # 2. Run the setup script / Kurulum scriptini çalıştırın
 chmod +x setup.sh
-./setup.sh
+sudo ./setup.sh
 ```
 
 ### 3. Follow the Script / Scripti Takip Edin
@@ -57,7 +57,7 @@ If you want to remove everything installed by the bot:
 Bot tarafından kurulan her şeyi kaldırmak isterseniz:
 ```bash
 chmod +x cleanup.sh
-./cleanup.sh
+sudo ./cleanup.sh
 ```
 
 ---
