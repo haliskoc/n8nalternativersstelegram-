@@ -291,6 +291,31 @@ if [ "$configure_feeds" = true ]; then
     # Temporary file for selected line numbers
     > selected_lines.txt
     
+    # Load existing feeds if they exist
+    if [ -f feeds.json ]; then
+        echo "Loading existing feeds..."
+        python3 -c "
+import json
+import os
+try:
+    if os.path.exists('feeds.json') and os.path.exists('feeds_db.txt'):
+        with open('feeds.json', 'r') as f:
+            urls = json.load(f)
+        with open('feeds_db.txt', 'r') as f:
+            db_lines = f.readlines()
+        selected = []
+        for i, line in enumerate(db_lines, 1):
+            parts = line.strip().split('|')
+            if len(parts) >= 3 and parts[2] in urls:
+                selected.append(str(i))
+        if selected:
+            with open('selected_lines.txt', 'w') as f:
+                f.write('\n'.join(selected) + '\n')
+except:
+    pass
+"
+    fi
+    
     while true; do
         clear
         echo -e "${BLUE}=== RSS FEED MANAGER ===${NC}"
@@ -518,6 +543,18 @@ if [ $? -eq 0 ]; then
     echo -e "\n${BLUE}${MSG_DONE_HEADER}${NC}"
     echo -e "${GREEN}${MSG_DONE_SUCCESS}${NC}"
     echo -e "${MSG_LOGS} ${DOCKER_COMPOSE_CMD} logs -f"
+    
+    # Install CLI tool
+    echo -e "\n${BLUE}Installing 'rsstelegram' CLI tool...${NC}"
+    CLI_SCRIPT="$(pwd)/rsstelegram.sh"
+    TARGET_LINK="/usr/local/bin/rsstelegram"
+    
+    if [ -f "$CLI_SCRIPT" ]; then
+        ln -sf "$CLI_SCRIPT" "$TARGET_LINK"
+        echo -e "${GREEN}Installed! You can now type 'rsstelegram' in any terminal to manage the bot.${NC}"
+    else
+        echo -e "${RED}Could not find rsstelegram.sh to install.${NC}"
+    fi
 else
     echo -e "\n${RED}${MSG_ERROR}${NC}"
     exit 1

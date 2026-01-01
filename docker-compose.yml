@@ -12,3 +12,7 @@ services:
       - OPENROUTER_MODEL=${OPENROUTER_MODEL}
     volumes:
       - ./data:/app/data
+      - ./feeds.json:/app/feeds.json
+      - ./filters.json:/app/filters.json
+      - ./topics.json:/app/topics.json
+      - ./news_bot.db:/app/news_bot.db

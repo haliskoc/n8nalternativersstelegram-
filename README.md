@@ -46,17 +46,27 @@ sudo ./setup.sh
 
 The script will automatically detect your OS (Linux, macOS, Windows) and guide you through the installation.
 
-### 3. Update
+### 3. Manage the Bot
 
-To update the bot to the latest version, simply run:
+Once installed, you can manage everything using the unified CLI tool. Just type:
 
 ```bash
-chmod +x update.sh
-sudo ./update.sh
+sudo rsstelegram
 ```
 
-### 4. Follow the Script
-The script will ask you for your language (English/Turkish) and your keys. Just enter them and press Enter. That's it!
+This will open a menu where you can:
+- 📰 **Manage Feeds:** Add, remove, or search for RSS feeds.
+- 🔄 **Import/Export:** Import OPML files or export your current list.
+- 🤖 **Bot Control:** Start, stop, restart, or view logs.
+- ⚙️ **Settings:** Change your API keys or configuration.
+
+### 4. Update
+
+To update the bot to the latest version:
+```bash
+sudo rsstelegram
+```
+Select option **5. Update Application**.
 
 ### 🗑️ Uninstall
 If you want to remove everything installed by the bot:
