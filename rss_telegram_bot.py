@@ -41,6 +41,7 @@ class RSSNewsBot:
         self.rss_urls = []
         self.filters = {"whitelist": [], "blacklist": []}
         self.topics = {}
+        self.locales = {}
         
         # AI Setup
         self.openrouter_api_key = os.getenv('OPENROUTER_API_KEY')
@@ -57,6 +58,7 @@ class RSSNewsBot:
                 logger.error(f"AI Client başlatılamadı: {e}")
 
         self.load_config()
+        self.load_locales()
         self.init_database()
         self.init_daily_news_storage()
 
@@ -85,6 +87,18 @@ class RSSNewsBot:
                     self.topics = json.load(f)
             except Exception as e:
                 logger.error(f"topics.json okuma hatası: {e}")
+    
+    def load_locales(self):
+        """Load localization messages from locales.json"""
+        if os.path.exists('locales.json'):
+            try:
+                with open('locales.json', 'r', encoding='utf-8') as f:
+                    self.locales = json.load(f)
+                logger.info(f"Locales loaded: {list(self.locales.keys())}")
+            except Exception as e:
+                logger.error(f"locales.json okuma hatası: {e}")
+                # Fallback to default Turkish messages
+                self.locales = {}
         
     def init_database(self):
         """SQLite veritabanını başlat ve tabloları oluştur"""
@@ -119,9 +133,18 @@ class RSSNewsBot:
                 )
             ''')
             
+            # User preferences (language settings)
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS user_preferences (
+                    user_id INTEGER PRIMARY KEY,
+                    language TEXT DEFAULT 'tr',
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            ''')
+            
             conn.commit()
             conn.close()
-            logger.info("Veritabanı başarıyla başlatıldı (sent_news ve news_archive tabloları)")
+            logger.info("Veritabanı başarıyla başlatıldı (sent_news, news_archive ve user_preferences tabloları)")
         except Exception as e:
             logger.error(f"Veritabanı başlatma hatası: {e}")
     
@@ -272,6 +295,48 @@ class RSSNewsBot:
         except Exception as e:
             logger.error(f"Haber işaretleme hatası: {e}")
     
+    def get_user_language(self, user_id: int) -> str:
+        """Get user's preferred language, default to 'tr' (Turkish)"""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            cursor.execute("SELECT language FROM user_preferences WHERE user_id = ?", (user_id,))
+            result = cursor.fetchone()
+            conn.close()
+            if result:
+                return result[0]
+            return 'tr'  # Default to Turkish
+        except Exception as e:
+            logger.error(f"User language fetch error: {e}")
+            return 'tr'
+    
+    def set_user_language(self, user_id: int, language: str):
+        """Set user's preferred language"""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            cursor.execute('''
+                INSERT OR REPLACE INTO user_preferences (user_id, language, updated_at)
+                VALUES (?, ?, CURRENT_TIMESTAMP)
+            ''', (user_id, language))
+            conn.commit()
+            conn.close()
+            logger.info(f"User {user_id} language set to {language}")
+        except Exception as e:
+            logger.error(f"User language set error: {e}")
+    
+    def get_message(self, language: str, key: str) -> str:
+        """Get localized message by language and key"""
+        try:
+            if language in self.locales and key in self.locales[language]['messages']:
+                return self.locales[language]['messages'][key]
+            # Fallback to Turkish
+            if 'tr' in self.locales and key in self.locales['tr']['messages']:
+                return self.locales['tr']['messages'][key]
+        except Exception as e:
+            logger.error(f"Message fetch error: {e}")
+        return ""
+    
     def fetch_feeds(self) -> List[Dict]:
         """RSS feedlerini çek"""
         all_news = []
@@ -332,15 +397,45 @@ class RSSNewsBot:
 bot_logic = RSSNewsBot()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """/start komutu"""
-    await update.message.reply_text(
-        "👋 Merhaba! Ben RSS Haber Botu.\n\n"
-        "Komutlar:\n"
-        "/sonhaberler - Son 5 haberi getir\n"
-        "/ara <kelime> - Haberlerde arama yap\n"
-        "/abone <url> - Yeni RSS kaynağı ekle\n"
-        "/topicid - Bulunduğun konunun ID'sini öğren"
-    )
+    """/start command - Shows greeting in user's language"""
+    user_id = update.effective_user.id
+    
+    # Try to detect language from Telegram user settings
+    user_lang_code = update.effective_user.language_code
+    
+    # Map Telegram language codes to our supported languages
+    lang_map = {
+        'en': 'en',
+        'tr': 'tr',
+        'es': 'es',
+        'ru': 'ru',
+        'pt': 'pt',
+        'pt-BR': 'pt',
+        'pt-PT': 'pt'
+    }
+    
+    # Check if user already has a saved language preference
+    saved_lang = bot_logic.get_user_language(user_id)
+    
+    # If this is first time, use detected language or default to Turkish
+    if saved_lang == 'tr' and user_lang_code:
+        detected_lang = lang_map.get(user_lang_code, 'tr')
+        bot_logic.set_user_language(user_id, detected_lang)
+        user_lang = detected_lang
+    else:
+        user_lang = saved_lang
+    
+    # Get localized messages
+    greeting = bot_logic.get_message(user_lang, 'BOT_GREETING')
+    commands = bot_logic.get_message(user_lang, 'BOT_COMMANDS')
+    
+    # Fallback to Turkish if messages not found
+    if not greeting:
+        greeting = "👋 Merhaba! Ben RSS Haber Botu."
+    if not commands:
+        commands = "Komutlar:\n/sonhaberler - Son 5 haberi getir\n/ara <kelime> - Haberlerde arama yap\n/abone <url> - Yeni RSS kaynağı ekle\n/topicid - Bulunduğun konunun ID'sini öğren\n/dil - Dil değiştir"
+    
+    await update.message.reply_text(f"{greeting}\n\n{commands}")
 
 async def get_topic_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """/topicid komutu"""
@@ -427,6 +522,46 @@ async def subscribe(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         await update.message.reply_text(f"Kaydetme hatası: {e}")
 
+async def set_language(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """/setlang or /dil command - Change user language preference"""
+    user_id = update.effective_user.id
+    
+    # If no language specified, show available languages
+    if not context.args:
+        current_lang = bot_logic.get_user_language(user_id)
+        available_langs = {
+            'en': 'English',
+            'tr': 'Türkçe',
+            'es': 'Español',
+            'ru': 'Русский',
+            'pt': 'Português'
+        }
+        
+        msg = f"Current language / Mevcut dil: {available_langs.get(current_lang, 'Unknown')}\n\n"
+        msg += "Available languages / Mevcut diller:\n"
+        for code, name in available_langs.items():
+            msg += f"/setlang {code} - {name}\n"
+        
+        await update.message.reply_text(msg)
+        return
+    
+    # Set the specified language
+    new_lang = context.args[0].lower()
+    valid_langs = ['en', 'tr', 'es', 'ru', 'pt']
+    
+    if new_lang not in valid_langs:
+        await update.message.reply_text(f"Invalid language. Use: {', '.join(valid_langs)}")
+        return
+    
+    bot_logic.set_user_language(user_id, new_lang)
+    
+    # Get confirmation message in the new language
+    confirmation = bot_logic.get_message(new_lang, 'CMD_LANGUAGE_SET')
+    if not confirmation:
+        confirmation = f"Language set to {new_lang}!"
+    
+    await update.message.reply_text(confirmation)
+
 async def check_feeds_job(context: ContextTypes.DEFAULT_TYPE):
     """Periyodik haber kontrol işi"""
     chat_id = context.job.chat_id
@@ -504,9 +639,24 @@ def main():
     # Komutları ekle
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("sonhaberler", latest_news))
+    application.add_handler(CommandHandler("latest", latest_news))
+    application.add_handler(CommandHandler("ultimas", latest_news))
+    application.add_handler(CommandHandler("последние", latest_news))
     application.add_handler(CommandHandler("ara", search_news))
+    application.add_handler(CommandHandler("search", search_news))
+    application.add_handler(CommandHandler("buscar", search_news))
+    application.add_handler(CommandHandler("поиск", search_news))
     application.add_handler(CommandHandler("abone", subscribe))
+    application.add_handler(CommandHandler("subscribe", subscribe))
+    application.add_handler(CommandHandler("suscribir", subscribe))
+    application.add_handler(CommandHandler("подписаться", subscribe))
+    application.add_handler(CommandHandler("assinar", subscribe))
     application.add_handler(CommandHandler("topicid", get_topic_id))
+    application.add_handler(CommandHandler("setlang", set_language))
+    application.add_handler(CommandHandler("dil", set_language))
+    application.add_handler(CommandHandler("idioma", set_language))
+    application.add_handler(CommandHandler("язык", set_language))
+    application.add_handler(CommandHandler("lingua", set_language))
 
     # Job Queue (Periyodik kontrol)
     if chat_id:
