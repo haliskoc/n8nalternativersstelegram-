@@ -1,37 +1,38 @@
 #!/bin/bash
 
-# Renkler
+# Colors / Renkler
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# Proje dizinini bul (Scriptin çalıştığı yer)
+# Resolve Project Directory / Proje dizinini bul
 PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo -e "${RED}======================================================${NC}"
-echo -e "${RED}   RSS TELEGRAM BOT - KALDIRMA / UNINSTALL SCRIPT   ${NC}"
+echo -e "${RED}   RSS TELEGRAM BOT - UNINSTALL / KALDIRMA SCRIPT   ${NC}"
 echo -e "${RED}======================================================${NC}"
 echo ""
-echo -e "Tespit edilen proje dizini / Detected project directory:"
+echo -e "Detected project directory / Tespit edilen proje dizini:"
 echo -e "${BLUE}$PROJECT_DIR${NC}"
 echo ""
-echo -e "${RED}DİKKAT / WARNING:${NC}"
-echo "Bu işlem şunları yapacaktır / This action will:"
-echo "1. Docker konteynerlerini durdurup silecek (Stop & remove Docker containers)"
-echo "2. Docker imajlarını silecek (Remove Docker images)"
-echo "3. Veritabanı ve ayar dosyalarını silecek (Delete database & configs)"
-echo "4. BU KLASÖRÜ TAMAMEN SİLECEK! (DELETE THIS ENTIRE DIRECTORY!)"
+echo -e "${RED}WARNING / DİKKAT:${NC}"
+echo "This action will / Bu işlem şunları yapacaktır:"
+echo "1. Stop & remove Docker containers (Docker konteynerlerini durdurup silecek)"
+echo "2. Remove Docker images (Docker imajlarını silecek)"
+echo "3. Delete database & configs (Veritabanı ve ayar dosyalarını silecek)"
+echo "4. DELETE THIS ENTIRE DIRECTORY! (BU KLASÖRÜ TAMAMEN SİLECEK!)"
 echo ""
 
-read -p "Devam etmek istiyor musunuz? / Are you sure? (y/n): " confirm
+read -p "Are you sure you want to proceed? / Devam etmek istiyor musunuz? (y/n): " confirm
 
 if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
-    echo "İşlem iptal edildi. / Aborted."
+    echo -e "${YELLOW}Uninstallation aborted. / İşlem iptal edildi.${NC}"
     exit 0
 fi
 
-# Geçici bir temizleme scripti oluştur (Kendi kendini silerken hata vermemesi için)
+# Create a temporary cleanup script / Geçici bir temizleme scripti oluştur
 TEMP_SCRIPT="/tmp/rss_bot_cleanup.sh"
 
 cat > "$TEMP_SCRIPT" <<EOF
@@ -39,7 +40,7 @@ cat > "$TEMP_SCRIPT" <<EOF
 
 PROJECT_DIR="$PROJECT_DIR"
 
-echo "Docker temizliği yapılıyor... / Cleaning up Docker..."
+echo "Cleaning up Docker... / Docker temizliği yapılıyor..."
 cd "\$PROJECT_DIR"
 
 # Docker Compose Down
@@ -48,27 +49,27 @@ if docker compose version &> /dev/null; then
 elif command -v docker-compose &> /dev/null; then
     docker-compose down -v --rmi all
 else
-    echo "Docker Compose bulunamadı, manuel temizlik deneniyor..."
+    echo "Docker Compose not found, trying manual cleanup... / Docker Compose bulunamadı, manuel temizlik deneniyor..."
     docker stop rss-telegram-bot 2>/dev/null
     docker rm rss-telegram-bot 2>/dev/null
-    # Imaj ismini tahmin etmeye çalış (klasör adı_servis adı)
+    # Try to guess image name / Imaj ismini tahmin etmeye çalış
     DIR_NAME=\$(basename "\$PROJECT_DIR" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]')
     docker rmi "\${DIR_NAME}-rss-telegram-bot" 2>/dev/null
     docker rmi "rss-telegram-bot" 2>/dev/null
 fi
 
-echo "Dosyalar siliniyor... / Removing files..."
+echo "Removing files... / Dosyalar siliniyor..."
 cd ..
 rm -rf "\$PROJECT_DIR"
 
-echo "✅ Kaldırma işlemi tamamlandı. / Uninstallation complete."
-echo "Klasör silindi: \$PROJECT_DIR"
+echo -e "\033[0;32m✅ Uninstallation complete. / Kaldırma işlemi tamamlandı.\033[0m"
+echo "Directory removed / Klasör silindi: \$PROJECT_DIR"
 
-# Kendini imha et
+# Self-destruct / Kendini imha et
 rm -- "\$0"
 EOF
 
 chmod +x "$TEMP_SCRIPT"
 
-echo "Temizleme işlemi başlatılıyor..."
+echo -e "${YELLOW}Starting cleanup process... / Temizleme işlemi başlatılıyor...${NC}"
 exec "$TEMP_SCRIPT"

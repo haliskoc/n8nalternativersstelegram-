@@ -198,6 +198,7 @@ while true; do
     echo "3. 🤖 Bot Control (Start/Stop/Logs)"
     echo "4. ⚙️  Settings & Configuration"
     echo "5. ⬆️  Update Application"
+    echo "6. 🗑️  Uninstall Project"
     echo "0. 🚪 Exit"
     echo "------------------------------------"
     read -p "Select an option: " main_choice
@@ -211,6 +212,10 @@ while true; do
             echo "Updating..."
             ./update.sh
             pause
+            ;;
+        6)
+            ./uninstall.sh
+            exit 0
             ;;
         0) 
             echo "Goodbye!"
