@@ -34,6 +34,17 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Language code mapping from Telegram to bot's supported languages
+TELEGRAM_LANG_MAP = {
+    'en': 'en',
+    'tr': 'tr',
+    'es': 'es',
+    'ru': 'ru',
+    'pt': 'pt',
+    'pt-BR': 'pt',
+    'pt-PT': 'pt'
+}
+
 class RSSNewsBot:
     def __init__(self):
         self.db_path = "news_bot.db"
@@ -420,19 +431,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # For new users, try to detect language from Telegram user settings
         user_lang_code = update.effective_user.language_code
         
-        # Map Telegram language codes to our supported languages
-        lang_map = {
-            'en': 'en',
-            'tr': 'tr',
-            'es': 'es',
-            'ru': 'ru',
-            'pt': 'pt',
-            'pt-BR': 'pt',
-            'pt-PT': 'pt'
-        }
-        
         # Use detected language or default to Turkish
-        user_lang = lang_map.get(user_lang_code, 'tr')
+        user_lang = TELEGRAM_LANG_MAP.get(user_lang_code, 'tr')
         bot_logic.set_user_language(user_id, user_lang)
     else:
         # For existing users, use their saved preference
@@ -651,25 +651,30 @@ def main():
 
     # Komutları ekle
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("sonhaberler", latest_news))
-    application.add_handler(CommandHandler("latest", latest_news))
-    application.add_handler(CommandHandler("ultimas", latest_news))
-    application.add_handler(CommandHandler("последние", latest_news))
-    application.add_handler(CommandHandler("ara", search_news))
-    application.add_handler(CommandHandler("search", search_news))
-    application.add_handler(CommandHandler("buscar", search_news))
-    application.add_handler(CommandHandler("поиск", search_news))
-    application.add_handler(CommandHandler("abone", subscribe))
-    application.add_handler(CommandHandler("subscribe", subscribe))
-    application.add_handler(CommandHandler("suscribir", subscribe))
-    application.add_handler(CommandHandler("подписаться", subscribe))
-    application.add_handler(CommandHandler("assinar", subscribe))
+    # Latest news commands (multi-language)
+    application.add_handler(CommandHandler("sonhaberler", latest_news))  # Turkish
+    application.add_handler(CommandHandler("latest", latest_news))  # English
+    application.add_handler(CommandHandler("ultimas", latest_news))  # Spanish & Portuguese (shared)
+    application.add_handler(CommandHandler("последние", latest_news))  # Russian
+    # Search commands (multi-language)
+    application.add_handler(CommandHandler("ara", search_news))  # Turkish
+    application.add_handler(CommandHandler("search", search_news))  # English
+    application.add_handler(CommandHandler("buscar", search_news))  # Spanish & Portuguese (shared)
+    application.add_handler(CommandHandler("поиск", search_news))  # Russian
+    # Subscribe commands (multi-language)
+    application.add_handler(CommandHandler("abone", subscribe))  # Turkish
+    application.add_handler(CommandHandler("subscribe", subscribe))  # English
+    application.add_handler(CommandHandler("suscribir", subscribe))  # Spanish
+    application.add_handler(CommandHandler("подписаться", subscribe))  # Russian
+    application.add_handler(CommandHandler("assinar", subscribe))  # Portuguese
+    # Topic ID command (shared across languages)
     application.add_handler(CommandHandler("topicid", get_topic_id))
-    application.add_handler(CommandHandler("setlang", set_language))
-    application.add_handler(CommandHandler("dil", set_language))
-    application.add_handler(CommandHandler("idioma", set_language))
-    application.add_handler(CommandHandler("язык", set_language))
-    application.add_handler(CommandHandler("lingua", set_language))
+    # Language selection commands (multi-language)
+    application.add_handler(CommandHandler("setlang", set_language))  # English
+    application.add_handler(CommandHandler("dil", set_language))  # Turkish
+    application.add_handler(CommandHandler("idioma", set_language))  # Spanish
+    application.add_handler(CommandHandler("язык", set_language))  # Russian
+    application.add_handler(CommandHandler("lingua", set_language))  # Portuguese
 
     # Job Queue (Periyodik kontrol)
     if chat_id:
