@@ -109,6 +109,8 @@ All major commands have aliases in each supported language:
 | Subscribe | `/subscribe` | `/abone` | `/suscribir` | `/подписаться` | `/assinar` |
 | Set Language | `/setlang` | `/dil` | `/idioma` | `/язык` | `/lingua` |
 
+**Note:** Some commands share the same name across languages (e.g., `/ultimas` for both Spanish and Portuguese, `/buscar` for both Spanish and Portuguese). The bot recognizes all command variants.
+
 ## Technical Implementation
 
 ### Database Schema

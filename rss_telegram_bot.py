@@ -295,6 +295,19 @@ class RSSNewsBot:
         except Exception as e:
             logger.error(f"Haber işaretleme hatası: {e}")
     
+    def user_exists(self, user_id: int) -> bool:
+        """Check if user has a language preference stored"""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            cursor.execute("SELECT 1 FROM user_preferences WHERE user_id = ?", (user_id,))
+            result = cursor.fetchone()
+            conn.close()
+            return result is not None
+        except Exception as e:
+            logger.error(f"User existence check error: {e}")
+            return False
+    
     def get_user_language(self, user_id: int) -> str:
         """Get user's preferred language, default to 'tr' (Turkish)"""
         try:
@@ -400,30 +413,30 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """/start command - Shows greeting in user's language"""
     user_id = update.effective_user.id
     
-    # Try to detect language from Telegram user settings
-    user_lang_code = update.effective_user.language_code
+    # Check if this is a new user (no saved preference)
+    is_new_user = not bot_logic.user_exists(user_id)
     
-    # Map Telegram language codes to our supported languages
-    lang_map = {
-        'en': 'en',
-        'tr': 'tr',
-        'es': 'es',
-        'ru': 'ru',
-        'pt': 'pt',
-        'pt-BR': 'pt',
-        'pt-PT': 'pt'
-    }
-    
-    # Check if user already has a saved language preference
-    saved_lang = bot_logic.get_user_language(user_id)
-    
-    # If this is first time, use detected language or default to Turkish
-    if saved_lang == 'tr' and user_lang_code:
-        detected_lang = lang_map.get(user_lang_code, 'tr')
-        bot_logic.set_user_language(user_id, detected_lang)
-        user_lang = detected_lang
+    if is_new_user:
+        # For new users, try to detect language from Telegram user settings
+        user_lang_code = update.effective_user.language_code
+        
+        # Map Telegram language codes to our supported languages
+        lang_map = {
+            'en': 'en',
+            'tr': 'tr',
+            'es': 'es',
+            'ru': 'ru',
+            'pt': 'pt',
+            'pt-BR': 'pt',
+            'pt-PT': 'pt'
+        }
+        
+        # Use detected language or default to Turkish
+        user_lang = lang_map.get(user_lang_code, 'tr')
+        bot_logic.set_user_language(user_id, user_lang)
     else:
-        user_lang = saved_lang
+        # For existing users, use their saved preference
+        user_lang = bot_logic.get_user_language(user_id)
     
     # Get localized messages
     greeting = bot_logic.get_message(user_lang, 'BOT_GREETING')
