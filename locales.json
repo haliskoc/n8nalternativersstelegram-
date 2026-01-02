@@ -36,7 +36,13 @@
       "MSG_LOGS": "To watch the bot live: ",
       "MSG_ERROR": "An error occurred during setup!",
       "MSG_OPML_PROMPT": "Do you want to import feeds from an OPML file? (y/n): ",
-      "MSG_OPML_PATH": "Enter path to .opml file: "
+      "MSG_OPML_PATH": "Enter path to .opml file: ",
+      "BOT_GREETING": "👋 Hello! I'm the RSS News Bot.",
+      "BOT_COMMANDS": "Commands:\n/latest - Get the last 5 news items\n/search <keyword> - Search in news\n/subscribe <url> - Add a new RSS feed\n/topicid - Get current topic ID\n/setlang - Change language",
+      "CMD_LATEST": "latest",
+      "CMD_SEARCH": "search",
+      "CMD_SUBSCRIBE": "subscribe",
+      "CMD_LANGUAGE_SET": "Language set to English!"
     }
   },
   "tr": {
@@ -76,7 +82,13 @@
       "MSG_LOGS": "Çalışmayı canlı izlemek için: ",
       "MSG_ERROR": "Kurulum sırasında bir hata oluştu!",
       "MSG_OPML_PROMPT": "OPML dosyasından RSS kaynaklarını içe aktarmak ister misiniz? (e/h): ",
-      "MSG_OPML_PATH": ".opml dosyasının yolunu girin: "
+      "MSG_OPML_PATH": ".opml dosyasının yolunu girin: ",
+      "BOT_GREETING": "👋 Merhaba! Ben RSS Haber Botu.",
+      "BOT_COMMANDS": "Komutlar:\n/sonhaberler - Son 5 haberi getir\n/ara <kelime> - Haberlerde arama yap\n/abone <url> - Yeni RSS kaynağı ekle\n/topicid - Bulunduğun konunun ID'sini öğren\n/dil - Dil değiştir",
+      "CMD_LATEST": "sonhaberler",
+      "CMD_SEARCH": "ara",
+      "CMD_SUBSCRIBE": "abone",
+      "CMD_LANGUAGE_SET": "Dil Türkçe olarak ayarlandı!"
     }
   },
   "es": {
@@ -116,7 +128,13 @@
       "MSG_LOGS": "Para ver el bot en vivo: ",
       "MSG_ERROR": "¡Ocurrió un error durante la configuración!",
       "MSG_OPML_PROMPT": "¿Desea importar fuentes desde un archivo OPML? (s/n): ",
-      "MSG_OPML_PATH": "Ingrese la ruta del archivo .opml: "
+      "MSG_OPML_PATH": "Ingrese la ruta del archivo .opml: ",
+      "BOT_GREETING": "👋 ¡Hola! Soy el Bot de Noticias RSS.",
+      "BOT_COMMANDS": "Comandos:\n/ultimas - Obtener las últimas 5 noticias\n/buscar <palabra> - Buscar en noticias\n/suscribir <url> - Agregar nueva fuente RSS\n/topicid - Obtener ID del tema actual\n/idioma - Cambiar idioma",
+      "CMD_LATEST": "ultimas",
+      "CMD_SEARCH": "buscar",
+      "CMD_SUBSCRIBE": "suscribir",
+      "CMD_LANGUAGE_SET": "¡Idioma configurado a Español!"
     }
   },
   "ru": {
@@ -156,7 +174,13 @@
       "MSG_LOGS": "Чтобы смотреть за работой бота: ",
       "MSG_ERROR": "Произошла ошибка во время установки!",
       "MSG_OPML_PROMPT": "Хотите импортировать каналы из файла OPML? (д/н): ",
-      "MSG_OPML_PATH": "Введите путь к файлу .opml: "
+      "MSG_OPML_PATH": "Введите путь к файлу .opml: ",
+      "BOT_GREETING": "👋 Здравствуйте! Я RSS Новостной Бот.",
+      "BOT_COMMANDS": "Команды:\n/последние - Получить последние 5 новостей\n/поиск <слово> - Поиск в новостях\n/подписаться <url> - Добавить новый RSS канал\n/topicid - Получить ID текущей темы\n/язык - Изменить язык",
+      "CMD_LATEST": "последние",
+      "CMD_SEARCH": "поиск",
+      "CMD_SUBSCRIBE": "подписаться",
+      "CMD_LANGUAGE_SET": "Язык установлен на Русский!"
     }
   },
   "pt": {
@@ -196,7 +220,13 @@
       "MSG_LOGS": "Para assistir o bot ao vivo: ",
       "MSG_ERROR": "Ocorreu um erro durante a configuração!",
       "MSG_OPML_PROMPT": "Deseja importar feeds de um arquivo OPML? (s/n): ",
-      "MSG_OPML_PATH": "Digite o caminho para o arquivo .opml: "
+      "MSG_OPML_PATH": "Digite o caminho para o arquivo .opml: ",
+      "BOT_GREETING": "👋 Olá! Eu sou o Bot de Notícias RSS.",
+      "BOT_COMMANDS": "Comandos:\n/ultimas - Obter as últimas 5 notícias\n/buscar <palavra> - Buscar nas notícias\n/assinar <url> - Adicionar nova fonte RSS\n/topicid - Obter ID do tópico atual\n/lingua - Mudar idioma",
+      "CMD_LATEST": "ultimas",
+      "CMD_SEARCH": "buscar",
+      "CMD_SUBSCRIBE": "assinar",
+      "CMD_LANGUAGE_SET": "Idioma definido para Português!"
     }
   }
 }
